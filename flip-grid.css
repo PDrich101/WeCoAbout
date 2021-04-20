@@ -231,5 +231,12 @@ h1{
     background-color:lemonchiffon;
 
 }
-
-
+#featureList{
+    list-style-type: disc;
+}
+#featureList li{
+    margin:10px;
+}
+body > h1{
+    display: block;
+}

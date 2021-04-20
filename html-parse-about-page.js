@@ -18,10 +18,12 @@ const dptCodes = {
     lew: "Lokal Erfolgreich Werben"
 }
 const featureRequest = [
-    "MitarbeiterSuche (Anm.: nett, nur geht ein User eher auf eine Suchleiste und tippt etwas oder klickt er eher 2-3 Karten durch?)",
+    "Mitarbeiter Suche (Anm.: nett, doch geht ein User eher auf eine Suchleiste und tippt etwas oder klickt er eher 2-3 Karten durch?)",
     "Registerkarte 'Empfohlen' oder 'Relevant' -> umsetzbar, nur die Vorbedingungen müssen klar sein (Wie viele 'User-Level' soll es geben (NC, erste, Woche, zweite Wochen, TC, Coach, VT)? Das ist abhängig von der Struktur, die durch Wordpress und das Studio bereitgestellt wird) UND Jemand muss sich hinsetzten und definieren, für welche User-Level der jeweilige Mitarbeiter relevant ist.",
     "Filter nach Abteilungen -> umgesetzt",
-    "Online Verfügbarkeit",
+    "Online Verfügbarkeit -> umgesetzt",
+    "Versionierung -> umgesetzt",
+    "Verfügbarkeit Wesser Coach bitte wenn Design und Funktionen final sind"
 ]
 const allMembers = [
     {
@@ -2026,6 +2028,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     dptModule.init();
     dptModule.createNavigation(elements.cardNavigation);
+
+    const featureList = document.createElement("ul")
+    featureList.setAttribute("id", "featureList")
+    for (const request of featureRequest){
+        const liElement = document.createElement("li");
+        liElement.innerText = request;
+        featureList.appendChild(liElement);
+    }
+    const heading = document.createElement("h1");
+    heading.innerText = "Feature Liste"
+    elements.mainContainer.before(heading)
+    elements.mainContainer.before(featureList);
 
     
 
