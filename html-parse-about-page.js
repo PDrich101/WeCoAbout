@@ -1730,7 +1730,7 @@ const dptModule = {
             imageFront.setAttribute("src", member["image-front"]);
             imageFront.setAttribute("alt", "Titelbild von " + member.firstName + " " + member.lastName);
         } else {
-            imageFront.setAttribute("src", "/Webprojekte/WeCo Ressourcen/Bilder/usersecret.jpg");
+            imageFront.setAttribute("src", "Bilder/usersecret.jpg");
             imageFront.setAttribute("alt", "Anonymes Titelbild von " + member.firstName + " " + member.lastName);
         }
         imageFrontContainer.appendChild(imageFront);
