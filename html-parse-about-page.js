@@ -1481,7 +1481,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/patrick_löst_2021_1.jpg?v_DATE",
+        "image-front": "Bilder/patrick_loest_2021_1.jpg?v_DATE",
         "image-back": "",
         "department": [
             {
@@ -1516,7 +1516,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/marcel_müller_2021_1.jpg?v_DATE",
+        "image-front": "Bilder/marcel_mueller_2021_1.jpg?v_DATE",
         "image-back": "",
         "department": [
             {
