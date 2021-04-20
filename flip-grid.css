@@ -1,0 +1,235 @@
+/*  Ziel: Modulares CSS, sodass kein Custom CSS aus WP mit angesprochen wird, sondern alles
+    mit diesem Code läuft
+*/
+
+.dsp-none{
+    display:none;
+}
+.border-std-round{
+    border-radius:10px;
+}
+/* 3D Space */
+.scene{
+    width: 190px;
+    height: 340px;
+    perspective: 500px;
+    background-color: transparent;
+    margin: 5px;
+}
+/* 3D Objekt */
+.card{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform .4s;
+    transform-style: preserve-3d;
+ 
+    border-radius: 15px;
+}
+.card.is-flipped {
+    transform: rotateY(180deg);
+}
+.card-front{
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; /* Safari */
+    position: absolute;
+    /* height: 100%;
+    width: 100%; */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: grid;
+    max-width: 100%;
+}
+.card-back{
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; /* Safari */
+    position: absolute;
+    /* height: 310px;
+    width: 160px; */
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: grid;
+}
+.card-front{
+    grid-template-columns: 1fr;
+    grid-template-rows: 190px 110px;
+}
+.card-back{
+    transform: rotateY(180deg);
+    grid-template-columns:80px 80px;
+    grid-template-rows: 100px 92px 118px;
+}
+.card-image-front img{
+    border-radius:20px;
+    width: 150px;
+    height: auto;
+}
+.card-image-back img{
+    border-radius:10px;
+    width: 100%;
+    height: auto;
+    margin-top: 0px;
+}
+.card-image-front{
+    grid-column:1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    text-align: center;
+    font-size: 150px;
+}
+/* Name, Vorname, Position Vorderseite*/
+
+.card-overview-front{
+    grid-column:1;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.card-overview-front :first-child{
+    font-weight: bold;
+}
+
+.card-overview-front p {
+    margin: 10px 0px 0px 0px;
+    
+}
+.card-overview-front :last-child{
+    margin-top:6px;
+}
+
+/* Name, Vorname, Position Rückseite*/
+
+.card-overview-back{
+    grid-column:1;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.card-overview-back :first-child{
+    font-weight: bold;
+}
+
+.card-overview-back p {
+    margin: 10px 0px 0px 0px;
+    
+}
+.card-overview-back :last-child{
+    margin-top:2px;
+}
+.card-overview-back hr{
+    margin: -5px 20px 0px 0px;
+}   
+.card-image-back{
+    grid-column:1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    font-size: 75px;
+}
+.card-overview-back{
+    grid-column-start:1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.card-overview-back p{
+    margin: 0px 3px 10px 0px;
+}
+.card-overview-back :first-child{
+    margin-top:6px;
+} 
+.card-overview-back :last-child{
+    margin-bottom:0px;
+} 
+.card-description{
+    grid-column-start:1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+
+}
+.card-description > p {
+    margin-top: 10px;
+
+}
+.card-call-to-action{
+    grid-column:2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:flex-start;
+    padding: 8px 9px;
+    flex-wrap: wrap;
+}
+.card-call-to-action img{
+    height:23px;
+    width:23px;
+    margin:4px;
+}
+.card-overview :first-child{
+    margin-top: 25px;
+}
+a:any-link{color: black;}
+
+
+/* Flexcontainer für Abteilungen */
+section{
+    width:900px;
+    margin: auto;
+    
+}
+.cardContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:80px;
+    justify-content: center;
+    margin: auto;
+}
+hr{
+    margin: 6px 20px 0px 0px;
+}   
+.card-description > ul {
+    margin: 0px;
+    padding-left:1.2em;
+    list-style-position: outside;
+}
+html{
+    font-family: Noto Sans SC;
+    font-size: 62.5%;
+    line-height: 1.8em;
+}
+p,ul,ol{
+    font-size: 1.4em;
+}
+i{
+    font-size: 2.3em;
+}
+h1{
+    margin: 0.8em;;
+    font-size:3em;
+    text-align: center;  
+    display: none;  
+}
+#card-nav{
+    text-align: center;
+}
+#card-nav ul{
+    list-style-type: none;
+}
+#card-nav li{
+    cursor: pointer;
+    display: inline-block;
+    border:2px solid black;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin:3px;
+
+}
+#card-nav li.active{
+    background-color:lemonchiffon;
+
+}
+
+
