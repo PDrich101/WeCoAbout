@@ -1481,7 +1481,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/patrick_löst_2021_1.jpg",
+        "image-front": "Bilder/patrick_löst_2021_1.jpg?v_DATE",
         "image-back": "",
         "department": [
             {
@@ -1516,7 +1516,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/marcel_müller_2021_1.jpg",
+        "image-front": "Bilder/marcel_müller_2021_1.jpg?v_DATE",
         "image-back": "",
         "department": [
             {
@@ -1770,7 +1770,7 @@ const dptModule = {
             imageBack.setAttribute("src", member["image-front"]);
             imageBack.setAttribute("alt", "Titelbild von " + member.firstName + " " + member.lastName);
         } else {
-            imageBack.setAttribute("src", "/Webprojekte/WeCo Ressourcen/Bilder/usersecret.jpg");
+            imageBack.setAttribute("src", "Bilder/usersecret.jpg");
             imageBack.setAttribute("alt", "Anonymes Titelbild von " + member.firstName + " " + member.lastName);
         }
         imageBackContainer.appendChild(imageBack);
