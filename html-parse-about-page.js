@@ -56,7 +56,7 @@ const allMembers = [
             "1": "",
             "2": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/julia_burkhardt_2021_1.jpg",
+        "image-front": "Bilder/julia_burkhardt_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -91,7 +91,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/katja_köhler_2021_1.jpg",
+        "image-front": "Bilder/katja_köhler_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -113,7 +113,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/laura_maas_2021_1.jpg",
+        "image-front": "Bilder/laura_maas_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -148,7 +148,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/anouk_pardon_2021_1.jpg",
+        "image-front": "Bilder/anouk_pardon_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -183,7 +183,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/saskia_schirrmacher_2021_1.jpg",
+        "image-front": "Bilder/saskia_schirrmacher_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -218,7 +218,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/sarah_stäbler_2021_1.jpg",
+        "image-front": "Bilder/sarah_stäbler_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -240,7 +240,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/jennifer_vrana_2021_1.jpg",
+        "image-front": "Bilder/jennifer_vrana_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -275,7 +275,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/meike_weber_2021_1.jpg",
+        "image-front": "Bilder/meike_weber_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -310,7 +310,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/robert_werzer_2021_1.jpg",
+        "image-front": "Bilder/robert_werzer_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -490,7 +490,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/robert_ritter_2021_1.jpg",
+        "image-front": "Bilder/robert_ritter_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -565,7 +565,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/tonia_gieray_2021_1.jpg",
+        "image-front": "Bilder/tonia_gieray_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -600,7 +600,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/sabine_bartholmess_2021_1.jpg",
+        "image-front": "Bilder/sabine_bartholmess_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -635,7 +635,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/zdenek_drbalek_2021_1.jpg",
+        "image-front": "Bilder/zdenek_drbalek_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -670,7 +670,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/volker_hohmann_2021_1.jpg",
+        "image-front": "Bilder/volker_hohmann_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -740,7 +740,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/harrald_ott_2021_1.jpg",
+        "image-front": "Bilder/harrald_ott_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -775,7 +775,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/joachim_welker_2021_1.jpg",
+        "image-front": "Bilder/joachim_welker_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -810,7 +810,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/benita_renz_2021_1.jpg",
+        "image-front": "Bilder/benita_renz_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -845,7 +845,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/marko_frech_2021_1.jpg",
+        "image-front": "Bilder/marko_frech_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -880,7 +880,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/peter_renz_2021_1.jpg",
+        "image-front": "Bilder/peter_renz_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -915,7 +915,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/ajjana_baumeister_2021_1.jpg",
+        "image-front": "Bilder/ajjana_baumeister_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -1038,7 +1038,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/jutta_anderson_2021_1.jpg",
+        "image-front": "Bilder/jutta_anderson_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -1073,7 +1073,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/ann_katrin_eberhardt_2021_1.jpg",
+        "image-front": "Bilder/ann_katrin_eberhardt_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -1108,7 +1108,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/karla_wachsmann_2021_1.jpg",
+        "image-front": "Bilder/karla_wachsmann_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -1143,7 +1143,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/anita_bauer_2021_1.jpg",
+        "image-front": "Bilder/anita_bauer_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -1244,7 +1244,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/ludmila_dönges.jpg",
+        "image-front": "Bilder/ludmila_dönges.jpg",
         "image-back": "",
         "department": [
             {
@@ -1310,7 +1310,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/sibylle_wesser_2021_1.jpg",
+        "image-front": "Bilder/sibylle_wesser_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -1345,7 +1345,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/waldemar_günther_2021_1.jpg",
+        "image-front": "Bilder/waldemar_günther_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -1380,7 +1380,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/alexander_helwig_2021_1.jpg",
+        "image-front": "Bilder/alexander_helwig_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -1446,7 +1446,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/oliver_kunze_2021_1.jpg",
+        "image-front": "Bilder/oliver_kunze_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -1481,7 +1481,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/patrick_löst_2021_1.jpg",
+        "image-front": "Bilder/patrick_löst_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -1516,7 +1516,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/marcel_müller_2021_1.jpg",
+        "image-front": "Bilder/marcel_müller_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -1551,7 +1551,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/oliver_schaugg_2021_1.jpg",
+        "image-front": "Bilder/oliver_schaugg_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -1586,7 +1586,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/anesa_shabani_2021_1.jpg",
+        "image-front": "Bilder/anesa_shabani_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -1621,7 +1621,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "/Webprojekte/WeCo Ressourcen/Bilder/dayna_tscharnke_2021_1.jpg",
+        "image-front": "Bilder/dayna_tscharnke_2021_1.jpg",
         "image-back": "",
         "department": [
             {
