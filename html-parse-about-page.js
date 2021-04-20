@@ -1808,7 +1808,7 @@ const dptModule = {
             const CTADesktopPhoneLink = document.createElement("a");
             CTADesktopPhoneLink.setAttribute("href", "tel:" + member.contacts.officePhone);
             const CTADesktopPhone = document.createElement("img");
-            CTADesktopPhone.setAttribute("src", "/Webprojekte/WeCo Ressourcen/Bilder/desktop_phone.jpg");
+            CTADesktopPhone.setAttribute("src", "Bilder/desktop_phone.jpg");
             CTADesktopPhoneLink.appendChild(CTADesktopPhone);
             CTAContainer.appendChild(CTADesktopPhoneLink);
         }
@@ -1818,7 +1818,7 @@ const dptModule = {
             const CTAMobilePhoneLink = document.createElement("a");
             CTAMobilePhoneLink.setAttribute("href", "tel:" + member.contacts.mobilePhone);
             const CTAMobilePhone = document.createElement("img");
-            CTAMobilePhone.setAttribute("src", "/Webprojekte/WeCo Ressourcen/Bilder/mobile_phone.jpg");
+            CTAMobilePhone.setAttribute("src", "Bilder/mobile_phone.jpg");
             CTAMobilePhoneLink.appendChild(CTAMobilePhone);
             CTAContainer.appendChild(CTAMobilePhoneLink);
         }
@@ -1828,7 +1828,7 @@ const dptModule = {
             const CTAMailLink = document.createElement("a");
             CTAMailLink.setAttribute("href", "mailto:" + member.contacts.mail);
             const CTAMail = document.createElement("img");
-            CTAMail.setAttribute("src", "/Webprojekte/WeCo Ressourcen/Bilder/mail.jpg");
+            CTAMail.setAttribute("src", "Bilder/mail.jpg");
             CTAMailLink.appendChild(CTAMail);
             CTAContainer.appendChild(CTAMailLink);
         }
@@ -1839,7 +1839,7 @@ const dptModule = {
             CTAWhatsAppLink.setAttribute("href", "https://wa.me/" + member.contacts.whatsapp);
             CTAWhatsAppLink.setAttribute("target", "_blank");
             const CTAWhatsApp = document.createElement("img");
-            CTAWhatsApp.setAttribute("src", "/Webprojekte/WeCo Ressourcen/Bilder/whatsapp.jpg");
+            CTAWhatsApp.setAttribute("src", "Bilder/whatsapp.jpg");
             CTAWhatsAppLink.appendChild(CTAWhatsApp);
             CTAContainer.appendChild(CTAWhatsAppLink);
         }
