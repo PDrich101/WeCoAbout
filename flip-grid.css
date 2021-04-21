@@ -6,7 +6,7 @@
     display:none;
 }
 .border-std-round{
-    border-radius:10px;
+    border-radius:0px;
 }
 /* 3D Space */
 .scene{
@@ -14,7 +14,7 @@
     height: 340px;
     perspective: 500px;
     background-color: transparent;
-    margin: 5px;
+    margin: 11px;
 }
 /* 3D Objekt */
 .card{
@@ -35,9 +35,9 @@
     position: absolute;
     /* height: 100%;
     width: 100%; */
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 1px 2px 13px 2px rgba(0, 0, 0, 0.12);
     display: grid;
     max-width: 100%;
 }
@@ -48,13 +48,13 @@
     /* height: 310px;
     width: 160px; */
     padding: 15px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    box-shadow: 1px 2px 13px 2px rgba(0, 0, 0, 0.12);
     display: grid;
 }
 .card-front{
     grid-template-columns: 1fr;
-    grid-template-rows: 190px 110px;
+    grid-template-rows: 200px 110px;
 }
 .card-back{
     transform: rotateY(180deg);
@@ -62,15 +62,16 @@
     grid-template-rows: 100px 92px 118px;
 }
 .card-image-front img{
-    border-radius:20px;
-    width: 150px;
+    border-radius:3px;
+    width: 160px;
     height: auto;
 }
 .card-image-back img{
-    border-radius:10px;
-    width: 100%;
-    height: auto;
+    border-radius:25px;
+    width: 50px;
+    height: 50px;
     margin-top: 0px;
+    object-fit: cover;
 }
 .card-image-front{
     grid-column:1;
@@ -88,6 +89,9 @@
 }
 .card-overview-front :first-child{
     font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color:#222;
 }
 
 .card-overview-front p {
@@ -95,7 +99,11 @@
     
 }
 .card-overview-front :last-child{
-    margin-top:6px;
+    margin-top:7px;
+    font-size: 1.3em;
+    color:#666;
+    border-top:0.8px solid #666;
+    padding-top:5px;
 }
 
 /* Name, Vorname, Position Rückseite*/
@@ -136,6 +144,9 @@
 }
 .card-overview-back :first-child{
     margin-top:6px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color:#222;
 } 
 .card-overview-back :last-child{
     margin-bottom:0px;
@@ -188,7 +199,7 @@ section{
     margin: auto;
 }
 hr{
-    margin: 6px 20px 0px 0px;
+    margin: 10px 0px 0px 0px;
 }   
 .card-description > ul {
     margin: 0px;
@@ -221,15 +232,17 @@ h1{
 #card-nav li{
     cursor: pointer;
     display: inline-block;
-    border:2px solid black;
+    border:1px solid #800606;
     border-radius: 5px;
     padding: 5px 15px;
-    margin:3px;
+    margin:4px;
+    color:#800606;
 
 }
 #card-nav li.active{
-    background-color:lemonchiffon;
-
+    background-color:#800606;
+    color:white;
+    border-color:#800606;
 }
 #featureList{
     list-style-type: disc;

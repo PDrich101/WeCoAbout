@@ -1746,7 +1746,8 @@ const dptModule = {
         positionParagraphFront.innerText = member.position;
     
         cardOverviewFront.appendChild(nameParagraphFront);
-        cardOverviewFront.appendChild(document.createElement("hr"));
+        //Trennlinie jetzt durch CSS Border-top an positionParagraphFront
+        //cardOverviewFront.appendChild(document.createElement("hr"));
         cardOverviewFront.appendChild(positionParagraphFront)
     
         //Image und Overview in cardFront einfügen
