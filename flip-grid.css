@@ -108,22 +108,6 @@
 
 /* Name, Vorname, Position Rückseite*/
 
-.card-overview-back{
-    grid-column:1;
-    grid-row-start: 2;
-    grid-row-end: 3;
-}
-.card-overview-back :first-child{
-    font-weight: bold;
-}
-
-.card-overview-back p {
-    margin: 10px 0px 0px 0px;
-    
-}
-.card-overview-back :last-child{
-    margin-top:2px;
-}
 .card-overview-back hr{
     margin: -5px 20px 0px 0px;
 }   
@@ -136,20 +120,20 @@
 .card-overview-back{
     grid-column-start:1;
     grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 3;
-}
-.card-overview-back p{
-    margin: 0px 3px 10px 0px;
+    grid-row-start: 1;
+    grid-row-end: 2;
 }
 .card-overview-back :first-child{
-    margin-top:6px;
+    margin-top:0px;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     color:#222;
+    padding-left: 55px;
+    font-weight: bold;
 } 
 .card-overview-back :last-child{
     margin-bottom:0px;
+    margin-top:15px;
 } 
 .card-description{
     grid-column-start:1;
@@ -203,7 +187,7 @@ hr{
 }   
 .card-description > ul {
     margin: 0px;
-    padding-left:1.2em;
+    padding-left:0em;
     list-style-position: outside;
 }
 html{
@@ -252,4 +236,10 @@ h1{
 }
 body > h1{
     display: block;
+}
+ul > span::after{
+    content: " |";
+}
+ul > span::before{
+    content: "| ";
 }

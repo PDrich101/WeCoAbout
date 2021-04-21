@@ -1787,7 +1787,8 @@ const dptModule = {
         positionParagraphBack.innerText = member.position;
     
         cardOverviewBack.appendChild(nameParagraphBack);
-        cardOverviewBack.appendChild(document.createElement("hr"));
+        //Trennlinie jetzt durch CSS Border-top an positionParagraphFront
+        //cardOverviewBack.appendChild(document.createElement("hr"));
         cardOverviewBack.appendChild(positionParagraphBack);
     
         // TaskList erstellen
@@ -1796,7 +1797,7 @@ const dptModule = {
         const taskList = document.createElement("ul");
     
         for (const task of member.tasks) {
-            const taskElement = document.createElement("li");
+            const taskElement = document.createElement("span");
             taskElement.innerHTML = task.task;
             taskList.appendChild(taskElement);
         }
