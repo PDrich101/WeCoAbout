@@ -133,7 +133,7 @@
 } 
 .card-overview-back :last-child{
     margin-bottom:0px;
-    margin-top:15px;
+    margin-top:18px;
 } 
 .card-description{
     grid-column-start:1;
