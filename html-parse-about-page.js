@@ -18,19 +18,18 @@ const dptCodes = {
 }
 const featureRequest = [
     "Mitarbeiter Suche (Anm.: nett, doch geht ein User eher auf eine Suchleiste und tippt etwas oder klickt er eher 2-3 Karten durch?)",
-    "Registerkarte 'Empfohlen' oder 'Relevant' -> umsetzbar, nur die Vorbedingungen müssen klar sein (Wie viele 'User-Level' soll es geben (NC, erste, Woche, zweite Wochen, TC, Coach, VT)? Das ist abhängig von der Struktur, die durch Wordpress und das Studio bereitgestellt wird) UND Jemand muss sich hinsetzten und definieren, für welche User-Level der jeweilige Mitarbeiter relevant ist.",
+    "Registerkarte 'Empfohlen' oder 'Relevant' -> umsetzbar, nur die Vorbedingungen müssen klar sein (Wie viele 'User-Level' soll es geben (NC, erste, Woche, zweite Wochen, TC, Coach, VT)? Das ist abhängig von der Struktur, die durch Wordpress und das Studio bereitgestellt wird) UND ein Team muss sich hinsetzten und definieren, für welche User-Level der jeweilige Mitarbeiter relevant ist.",
     "Filter nach Abteilungen -> umgesetzt",
     "Online Verfügbarkeit -> umgesetzt",
     "Versionierung -> umgesetzt",
     "Voreingestellte Abteilung (im Beispiel ist es der Vertrieb) -> umgesetzt",
+    "Kontakt Button Rückseite -> umgesetzt",
+    "senkrechte Striche als Bulletpoints -> Zwischenlösung",
+    "Reduktion Kartenhöhe um 1/3 des Whitespace bei zweizeiliger Position -> Platz wird teilweise noch auf der Rückseite benötigt \/\/OnHold",
+    "Anpassung Schriftgröße Name Rückseite (Längster Name Chrysovalantis) -> umgesetzt",
+    "Anpassung Schriftposition Name Rückseite (zentral zum Bild auf x-Achse) -> umgesetzt",
     "Verfügbarkeit Wesser Coach bitte wenn Design und Funktionen final sind",
-    "Kontakt Button Rückseite",
-    "senkrechte Striche als Bulletpoints",
-    "Lightbox mit Kontaktmöglichkeiten",
-    "Reduktion Kartenhöhe um 1/3 des Whitespace bei zweizeiliger Position",
-    "Anpassung Schriftgröße Name Rückseite",
-    "Anpassung Schriftposition Name Rückseite" 
-    
+    'Lightbox mit Kontaktmöglichkeiten bei Klick auf "Kontaktieren"'
 ]
 const allMembers = [
     {
@@ -590,7 +589,7 @@ const allMembers = [
         "tasks": [
             {
                 "taskNr": "1",
-                "task": "Anwendungsprogrammierung Mitgliederverwaltung"
+                "task": "Anwendungs&shy;programmierung Mitgliederverwaltung"
             },
             {
                 "taskNr": "2",
@@ -1102,7 +1101,7 @@ const allMembers = [
             },
             {
                 "taskNr": "2",
-                "task": "Rechnungstellung/Statistiken D und CH"
+                "task": "Rechnungstellung/ Statistiken D und CH"
             },
             {
                 "taskNr": "3",
@@ -1855,15 +1854,16 @@ const dptModule = {
         // cardOverviewBack erstellen
         const cardOverviewBack = document.createElement("div");
         cardOverviewBack.classList.add("card-overview-back");
-        const nameParagraphBack = document.createElement("p");
-        nameParagraphBack.innerHTML = member.firstName + "<br>" + member.lastName;
+        const nameParagraphBackFirstName = document.createElement("p");
+        nameParagraphBackFirstName.innerHTML = member.firstName;
+        const nameParagraphBackLastName = document.createElement("p");
+        nameParagraphBackLastName.innerHTML = member.lastName;
 
-        // ONHOLD
-        // const positionParagraphBack = document.createElement("p");
-        // positionParagraphBack.innerText = member.position;
-        // cardOverviewBack.appendChild(positionParagraphBack);
+        const positionParagraphBack = document.createElement("p");
+        positionParagraphBack.innerText = member.position;
 
-        cardOverviewBack.appendChild(nameParagraphBack);
+        cardOverviewBack.appendChild(nameParagraphBackFirstName);
+        cardOverviewBack.appendChild(nameParagraphBackLastName);
         
 
         // TaskList erstellen
@@ -1872,10 +1872,11 @@ const dptModule = {
         const taskList = document.createElement("ul");
 
         for (const task of member.tasks) {
-            const taskElement = document.createElement("span");
+            const taskElement = document.createElement("li");
             taskElement.innerHTML = task.task;
             taskList.appendChild(taskElement);
         }
+        cardDescriptionContainer.appendChild(positionParagraphBack)
         cardDescriptionContainer.appendChild(taskList);
 
         // Call-to-action erstellen
@@ -1887,6 +1888,8 @@ const dptModule = {
         contactLink.innerText = "Kontaktieren";
         CTAContainer.appendChild(contactLink)
 
+        // ONHOLD
+        if(1===2){
         // Wenn Office-Tel-Nr. existiert
         if (member.contacts.officePhone != "") {
             const CTADesktopPhoneLink = document.createElement("a");
@@ -1929,15 +1932,17 @@ const dptModule = {
         }
 
         // Wenn Telegram existiert... noch zu erstellen
-
-        // Image und overviewBack in einen Flexboxcontainer packen
-        const imageNameContainerBack = document.createElement("div");
-        imageNameContainerBack.classList.add("img-name-container");
-        imageNameContainerBack.appendChild(imageBackContainer)
-        imageNameContainerBack.appendChild(cardOverviewBack)
+        }
+        // // Image und overviewBack in einen Flexboxcontainer packen
+        // const imageNameContainerBack = document.createElement("div");
+        // imageNameContainerBack.classList.add("img-name-container");
+        // imageNameContainerBack.appendChild(imageBackContainer)
+        // imageNameContainerBack.appendChild(cardOverviewBack)
 
         // Image, CTA, overviewBack und Description in cardBack einfügen
-        cardBack.appendChild(imageNameContainerBack)
+        cardBack.appendChild(imageBackContainer)
+        cardBack.appendChild(cardOverviewBack)
+        // cardBack.appendChild(imageNameContainerBack)
         cardBack.appendChild(cardDescriptionContainer)
         cardBack.appendChild(CTAContainer)
     
