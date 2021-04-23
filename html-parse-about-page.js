@@ -14,7 +14,6 @@ const dptCodes = {
     gfk: "Kommunikation und Design",
     suv: "Sekretariat und Verwaltung",
     na: "Nicht angegebene Abteilung",
-    xxx: "Beispiel",
     lew: "Lokal Erfolgreich Werben"
 }
 const featureRequest = [
@@ -23,7 +22,15 @@ const featureRequest = [
     "Filter nach Abteilungen -> umgesetzt",
     "Online Verfügbarkeit -> umgesetzt",
     "Versionierung -> umgesetzt",
-    "Verfügbarkeit Wesser Coach bitte wenn Design und Funktionen final sind"
+    "Voreingestellte Abteilung (im Beispiel ist es der Vertrieb) -> umgesetzt",
+    "Verfügbarkeit Wesser Coach bitte wenn Design und Funktionen final sind",
+    "Kontakt Button Rückseite",
+    "senkrechte Striche als Bulletpoints",
+    "Lightbox mit Kontaktmöglichkeiten",
+    "Reduktion Kartenhöhe um 1/3 des Whitespace bei zweizeiliger Position",
+    "Anpassung Schriftgröße Name Rückseite",
+    "Anpassung Schriftposition Name Rückseite" 
+    
 ]
 const allMembers = [
     {
@@ -921,7 +928,7 @@ const allMembers = [
         "image-back": "",
         "department": [
             {
-                "departmentName": "",
+                "departmentName": "gfk",
                 "departmentPosition": ""
             }
         ]
@@ -1429,7 +1436,7 @@ const allMembers = [
     {
         "firstName": "Oliver",
         "lastName": "Kunze",
-        "position": "Vertriebsleitung",
+        "position": "Vertriebsleiter",
         "tasks": [
             {
                 "taskNr": "1",
@@ -1633,28 +1640,49 @@ const allMembers = [
         ]
     }
 ]
-/**
- * Erstellt fortlaufende IDs
- */
-const getID = (() => {
-    let counter = -1
-    return () => {
-        counter++
-        return counter
-    }
-})()
 
 const dptModule = {
-
     master: [],
-    /**
-     * Erschafft das Masterobjekt mit allen Abteilungen und allen Mitarbeitern
-     */
+    vars: {
+        selectedDpt: "",
+        modus: "desktop",
+        mainElements: {},
+        navElementUL: [],
+        dptSection: {},
+    },
+    init(mainContainer, defaultDpt) {
+        this.vars.mainElements.mainContainer = mainContainer
+        this.vars.selectedDpt = defaultDpt;
+        // JSON parsen oder in dem Fall definieren
+        this.vars.allMembers = allMembers;
+        //createMaster
+        this.createMaster()
+
+        console.log("INIT: this.vars.mainElements.mainContainer",this.vars.mainElements.mainContainer)
+        console.log("INIT: this.vars.selectedDpt",this.vars.selectedDpt)
+
+        // Hauptelemente erstellen
+        const cardNav = document.createElement("section");
+        cardNav.setAttribute("id", "card-nav");
+        const displayContainer = document.createElement("section");
+        displayContainer.setAttribute("id", "display");
+        //createDisplay->in vars speichern
+        this.vars.mainElements.cardNav = cardNav;
+        this.vars.mainElements.displayContainer = displayContainer;
+        //Navigation und Fenster an MasterContainer anfügen
+        this.vars.mainElements.mainContainer.appendChild(cardNav);
+        this.vars.mainElements.mainContainer.appendChild(displayContainer);
+
+        console.log("INIT: this.vars.mainElements",this.vars.mainElements)
+        console.log("INIT",this.master)
+
+        this.createContainer()
+    },
     createMaster() {
-        // Alle Mitarbeiter werder der jeweils gesetzten Abteilung zugeordnet,
-        // und vorsert in ein Hilfsobjekt allDptMembers geschrieben
+        // Alle Mitarbeiter werden der jeweils gesetzten Abteilung zugeordnet,
+        // und vorerst in ein Hilfsobjekt allDptMembers geschrieben
         const allDptMembers = {};
-        for (const member of allMembers) {
+        for (const member of this.vars.allMembers) {
             let dptKey = member.department[0].departmentName
             // Wenn Kein Department-Key vergeben ist, weise den MA der Abteilung "na" zu 
             if (dptKey === "") {
@@ -1680,28 +1708,74 @@ const dptModule = {
             this.master.push(newDpt);
         }
     },
-
-    /**
-     * Aus dem Abteilungskürzel und dem Array der zugewiesenen Mitarbeiter wird eine Abteilung erschaffen
-     * @param {string} key dptCode 
-     * @param {array} array memberArray 
-     * @returns {object} single Department
-     */
-    createSingleDepartment(key, array){
+    createSingleDepartment(key, array) {
         const finalObject = {};
         finalObject.code = key;
         finalObject.name = dptCodes[key];
-        finalObject.active = false;
         finalObject.members = array;
         return finalObject;
     },
+    createContainer() {
+        //...basierend auf Master und vars
+        const cardNavigationUL = document.createElement("ul")
+        for (const dpt of this.master) {
+            const cardNavigationLiElement = document.createElement("li");
+            cardNavigationLiElement.innerText = dpt.name;
+            cardNavigationLiElement.setAttribute("data-dpt", dpt.code)
+            cardNavigationUL.appendChild(cardNavigationLiElement);
+            this.emit("addNavLiElement", cardNavigationLiElement);
+        }
+        this.vars.navElementUL = cardNavigationUL;
+        this.vars.mainElements.cardNav.appendChild(cardNavigationUL);
 
-    /**
-     * Nimmt einen Mitarbeiter als Objekt entgegen und gibt die HTML-Struktur zurück
-     * EventListener werden über das dptModule.event "addcard" hinzugefügt
-     * @param {object} member 
-     * @returns {HTMLObjectElement} Kartenstruktur
-     */
+        this.getNavElementByCode(this.vars.selectedDpt).classList.add("selected");
+        this.createSection(this.vars.selectedDpt);
+
+        console.log("CREATE CONTAINER: ",this.vars.dptSection)
+        return true;
+    },
+    updateContainer(currentDpt, nextDpt) {
+        // Wenn die Abteilung in this.vars.dptSection schon existiert, display-Eigeneschaft ändern
+        this.vars.dptSection[currentDpt].classList.add("d-none");
+        if (this.vars.dptSection.hasOwnProperty(nextDpt)) {
+            this.vars.dptSection[nextDpt].classList.remove("d-none");
+        }
+        // ansonsten Section erzeugen und anfügen
+        else {
+            this.createSection(nextDpt)
+            console.log("UPDATE CONTAINER: nextDpt", nextDpt);
+            console.log("UPDATE CONTAINER: currentDpt", currentDpt);
+            
+        }
+        this.getNavElementByCode(currentDpt).classList.remove("selected")
+        this.getNavElementByCode(nextDpt).classList.add("selected")
+        this.vars.selectedDpt = nextDpt
+
+
+        console.log("UPDATE CONTAINER: Final, ", this.vars.selectedDpt)
+    },
+    createSection(dptCode) {
+
+        const dpt = this.getDepartmentByCode(dptCode)
+        // Section erstellen
+        const newSection = document.createElement("section");
+        newSection.setAttribute("id", dpt.code)
+        // cardContainer erstellen
+        const cardContainerDiv = document.createElement("div");
+        cardContainerDiv.classList.add("cardContainer")
+
+        for (const member of dpt.members) {
+            const newCard = this.createCard(member, cardContainerDiv);
+            cardContainerDiv.appendChild(newCard);
+        }
+
+        newSection.appendChild(cardContainerDiv);
+        // Section in Hauptcontainer einfügen
+        this.vars.mainElements.displayContainer.appendChild(newSection);
+        // Section in dptSection schreiben
+ 
+        this.vars.dptSection[dptCode]= newSection
+    },
     createCard(member) {
         //
         // 3D scene erstellen
@@ -1723,7 +1797,7 @@ const dptModule = {
         //
         const cardFront = document.createElement("div");
         cardFront.classList.add("card-front");
-        
+
         // Bild erstellen und wenn vorhanden mit Content füllen
         const imageFrontContainer = document.createElement("div");
         imageFrontContainer.classList.add("card-image-front");
@@ -1736,7 +1810,7 @@ const dptModule = {
             imageFront.setAttribute("alt", "Anonymes Titelbild von " + member.firstName + " " + member.lastName);
         }
         imageFrontContainer.appendChild(imageFront);
-    
+
         // Overviev Front erstellen
         const cardOverviewFront = document.createElement("div");
         cardOverviewFront.classList.add("card-overview-front");
@@ -1744,12 +1818,12 @@ const dptModule = {
         nameParagraphFront.innerHTML = member.firstName + "<br>" + member.lastName;
         const positionParagraphFront = document.createElement("p");
         positionParagraphFront.innerText = member.position;
-    
+
         cardOverviewFront.appendChild(nameParagraphFront);
         //Trennlinie jetzt durch CSS Border-top an positionParagraphFront
         //cardOverviewFront.appendChild(document.createElement("hr"));
         cardOverviewFront.appendChild(positionParagraphFront)
-    
+
         //Image und Overview in cardFront einfügen
         cardFront.appendChild(imageFrontContainer);
         cardFront.appendChild(cardOverviewFront);
@@ -1760,7 +1834,7 @@ const dptModule = {
         //
         const cardBack = document.createElement("div");
         cardBack.classList.add("card-back");
-    
+
         // Bild erstellen und wenn vorhanden mit Content füllen
         const imageBackContainer = document.createElement("div");
         imageBackContainer.classList.add("card-image-back");
@@ -1777,36 +1851,42 @@ const dptModule = {
             imageBack.setAttribute("alt", "Anonymes Titelbild von " + member.firstName + " " + member.lastName);
         }
         imageBackContainer.appendChild(imageBack);
-    
+
         // cardOverviewBack erstellen
         const cardOverviewBack = document.createElement("div");
         cardOverviewBack.classList.add("card-overview-back");
         const nameParagraphBack = document.createElement("p");
         nameParagraphBack.innerHTML = member.firstName + "<br>" + member.lastName;
-        const positionParagraphBack = document.createElement("p");
-        positionParagraphBack.innerText = member.position;
-    
+
+        // ONHOLD
+        // const positionParagraphBack = document.createElement("p");
+        // positionParagraphBack.innerText = member.position;
+        // cardOverviewBack.appendChild(positionParagraphBack);
+
         cardOverviewBack.appendChild(nameParagraphBack);
-        //Trennlinie jetzt durch CSS Border-top an positionParagraphFront
-        //cardOverviewBack.appendChild(document.createElement("hr"));
-        cardOverviewBack.appendChild(positionParagraphBack);
-    
+        
+
         // TaskList erstellen
         const cardDescriptionContainer = document.createElement("div");
         cardDescriptionContainer.classList.add("card-description");
         const taskList = document.createElement("ul");
-    
+
         for (const task of member.tasks) {
             const taskElement = document.createElement("span");
             taskElement.innerHTML = task.task;
             taskList.appendChild(taskElement);
         }
         cardDescriptionContainer.appendChild(taskList);
-    
+
         // Call-to-action erstellen
         const CTAContainer = document.createElement("div");
         CTAContainer.classList.add("card-call-to-action");
-    
+
+        // Button erstellen als Standard
+        const contactLink = document.createElement("a");
+        contactLink.innerText = "Kontaktieren";
+        CTAContainer.appendChild(contactLink)
+
         // Wenn Office-Tel-Nr. existiert
         if (member.contacts.officePhone != "") {
             const CTADesktopPhoneLink = document.createElement("a");
@@ -1816,7 +1896,7 @@ const dptModule = {
             CTADesktopPhoneLink.appendChild(CTADesktopPhone);
             CTAContainer.appendChild(CTADesktopPhoneLink);
         }
-    
+
         // Wenn Mobil-Tel-Nr. existiert
         if (member.contacts.mobilePhone != "") {
             const CTAMobilePhoneLink = document.createElement("a");
@@ -1826,7 +1906,7 @@ const dptModule = {
             CTAMobilePhoneLink.appendChild(CTAMobilePhone);
             CTAContainer.appendChild(CTAMobilePhoneLink);
         }
-    
+
         // Wenn Mail-Adresse existiert
         if (member.contacts.mail != "") {
             const CTAMailLink = document.createElement("a");
@@ -1836,7 +1916,7 @@ const dptModule = {
             CTAMailLink.appendChild(CTAMail);
             CTAContainer.appendChild(CTAMailLink);
         }
-    
+
         // Wenn WhatsApp existiert
         if (member.contacts.whatsapp != "") {
             const CTAWhatsAppLink = document.createElement("a");
@@ -1847,12 +1927,17 @@ const dptModule = {
             CTAWhatsAppLink.appendChild(CTAWhatsApp);
             CTAContainer.appendChild(CTAWhatsAppLink);
         }
-    
+
         // Wenn Telegram existiert... noch zu erstellen
-    
+
+        // Image und overviewBack in einen Flexboxcontainer packen
+        const imageNameContainerBack = document.createElement("div");
+        imageNameContainerBack.classList.add("img-name-container");
+        imageNameContainerBack.appendChild(imageBackContainer)
+        imageNameContainerBack.appendChild(cardOverviewBack)
+
         // Image, CTA, overviewBack und Description in cardBack einfügen
-        cardBack.appendChild(imageBackContainer)
-        cardBack.appendChild(cardOverviewBack)
+        cardBack.appendChild(imageNameContainerBack)
         cardBack.appendChild(cardDescriptionContainer)
         cardBack.appendChild(CTAContainer)
     
@@ -1863,107 +1948,45 @@ const dptModule = {
         this.emit("addCard", scene)
         return scene;
     },
-    /**
-     * Erstellt die HTML Sektion für eine Abteilung inkl. aller Karten
-     * 
-     * @param {HTMLDivElement} mainContainer 
-     * @param {string} dptcode 
-     */
-    createSection(mainContainer, dptcode) {
-        const dpt = this.getDepartmentByCode(dptcode)
-        console.log("this @ createSection", this)
-        console.log("dptcode",dptcode)
-        console.log("spannendes VT dpt:::", dpt)
-        // Section erstellen
-        const newSection = document.createElement("section");
-        newSection.setAttribute("id", dpt.code)
-        // Überschrift erstellen
-        const heading = document.createElement("h1");
-        heading.innerText = dpt.name;
-        newSection.appendChild(heading);
-        // cardContainer erstellen
-        const cardContainerDiv = document.createElement("div");
-        cardContainerDiv.classList.add("cardContainer")
-    
-        for (const member of dpt.members) {
-            const newCard = this.createCard(member, cardContainerDiv);
-            cardContainerDiv.appendChild(newCard);
+    navigationClick(cardNavigationLiElement) {
+        const nextDpt = cardNavigationLiElement.dataset.dpt
+        // Wenn die geklickte Abteilung schon aktiv ist, return
+        if (nextDpt === this.vars.selectedDpt) {
+            console.log("aktives Element geklickt")
+            return false;
         }
-    
-        newSection.appendChild(cardContainerDiv);
-        // Section in Hauptcontainer einfügen
-        mainContainer.appendChild(newSection);
+        this.updateContainer(this.vars.selectedDpt, nextDpt)
+        return
     },
-    /**
-     * Erstellt eine HTML UL Liste mit allen Abteilungsnamen
-     * 
-     * @param {HTMLDivElement} cardNavigationULParent
-     */
-    createNavigation(cardNavigation) {
-        const cardNavigationUL = document.createElement("ul")
-        for (const dpt of this.master) {
-            const cardNavigationLiElement = document.createElement("li");
-            cardNavigationLiElement.innerText = dpt.name;
-            cardNavigationLiElement.setAttribute("data-selected", dpt.active);
-            cardNavigationLiElement.setAttribute("data-dpt", getID())
-
-            cardNavigationUL.appendChild(cardNavigationLiElement);
-        }
-        const navElements = cardNavigationUL.querySelectorAll("li");
-        for (const navElement of navElements) {
-            navElement.addEventListener("click", () => {
-                if (navElement.dataset.selected === "false") {
-                    // Aktive Anzeige finden und deaktivieren
-                    for (const navElement of navElements) {
-                        if (navElement.dataset.selected === "true") {
-                            navElement.classList.remove("active")
-                            navElement.setAttribute("data-selected", "false")
-                            document.getElementById(this.master[navElement.dataset.dpt].code).remove()
-                        }
-                    }
-                    // Sezte am NavElement die Klasse "active" und das data-selected Attribut auf true, sowie die Abteilung intern auf "aktiv"
-                    navElement.classList.add("active")
-                    navElement.setAttribute("data-selected", "true")
-                    this.master[navElement.dataset.dpt].active = true
-                    // Sektion der aktiven Abteilung erstellen
-                    this.createSection(this.CONST.mainContainer, dptModule.master[navElement.dataset.dpt].code)
-                }
-            })
-            navElement.addEventListener('mousedown', function (event) {
-                if (event.detail > 1) {
-                    event.preventDefault();
-                    // of course, you still do not know what you prevent here...
-                    // You could also check event.ctrlKey/event.shiftKey/event.altKey
-                    // to not prevent something useful.
-                }
-            }, false)
-        }
-        cardNavigation.appendChild(cardNavigationUL);
-    },
-    /**
-     * Gibt die Abteilung des übergebenen Kürzels als Objekt zurück
-     * 
-     * @param {string} dptCode 
-     * @returns {object} dpt
-     */
-    getDepartmentByCode(dptCode){
-        for (const i in this.master){
-            if(this.master[i].code === dptCode){
+    getDepartmentByCode(dptCode) {
+        for (const i in this.master) {
+            if (this.master[i].code === dptCode) {
                 return this.master[i];
             }
         }
     },
-
-    init() {
-        console.log("this @ init", this)
-        this.emit("startup")
+    getNavElementByCode(dptCode) {
+        return this.vars.navElementUL.querySelector("li[data-dpt='" + dptCode + "']")
     },
     events: {
+        "addNavLiElement": [
+            function (navElement) {
+                navElement.addEventListener("click", () => {
+                    this.navigationClick(navElement);
+                    return
+                })
+                navElement.addEventListener('mousedown', function (event) {
+                    if (event.detail > 1) {
+                        event.preventDefault();
+                        // of course, you still do not know what you prevent here...
+                        // You could also check event.ctrlKey/event.shiftKey/event.altKey
+                        // to not prevent something useful.
+                    }
+                }, false)
+            }
+        ],
         "addCard": [
             function (scene) {
-                console.log("this @addCard", this)
-                console.log("--".repeat(40))
-
                 scene.addEventListener("mouseenter", () => {
                     scene.querySelector(".card").classList.add("is-flipped")
                 });
@@ -1972,65 +1995,28 @@ const dptModule = {
                 })
             }
         ],
-        "startup":[
-            // eine ARROW Funktion würde hier kein this "erzeugen", sondern WINDOW wäre "this"
-            // Auch abhängig von der emit-Funktion, die das this festlegt.
-            function (){
-                console.log("this @ startup", this)
-                this.createMaster()
-            },
-            function (){
-                this.CONST.mainContainer = document.querySelector("main")
-                this.CONST.cardNavigation = document.querySelector("#card-nav")
-                console.log("this.CONST", this.CONST)
-            }
-        ]
     },
-    CONST : {},
-    /**
-     * Löst ein Ereignis aus. Dieser Funktion dürfen beliebig viele
-     * Parameter übergeben werden, diese werden 1:1 an die Events
-     * durchgereicht.
-     *
-     * @param {string} eventName
-     * @param {*=} params
-     */
     emit(eventName, param) {
         if (eventName in this.events) {
             for (const f of this.events[eventName]) {
-                console.log("this @emit before", this)
                 f.apply(dptModule, [param])
-                console.log("this @emit after", this)
             }
         }
     },
-
-    /**
-     * Registriert einen Event-Listener für das Event eventName.
-     *
-     * @param {string} eventName
-     * @param {Function} cb
-     * 
-     */
     on(eventName, cb) {
-        // Hier ist die Klammersetzung wirklich wichtig!
+        // Hier ist die Klammersetzung sehr wichtig!
         if (!(eventName in this.events)) {
             this.events[eventName] = []
         }
         this.events[eventName].push(cb)
     }
-
 }
-
 document.addEventListener("DOMContentLoaded", () => {
+    const mainContainer = document.querySelector("main");
 
-    const elements = {
-        "mainContainer": document.querySelector("main"),
-        "cardNavigation": document.querySelector("#card-nav")
-    }
-    dptModule.init();
-    dptModule.createNavigation(elements.cardNavigation);
+    dptModule.init(mainContainer, "vt");
 
+    console.log("was geht???")
     const featureList = document.createElement("ul")
     featureList.setAttribute("id", "featureList")
     for (const request of featureRequest){
@@ -2040,9 +2026,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     const heading = document.createElement("h1");
     heading.innerText = "Feature Liste"
-    elements.mainContainer.before(heading)
-    elements.mainContainer.before(featureList);
+    mainContainer.before(heading)
+    mainContainer.before(featureList);
 
-    
+    window.location = "#card-nav"
 
 })

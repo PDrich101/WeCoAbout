@@ -1,10 +1,6 @@
 /*  Ziel: Modulares CSS, sodass kein Custom CSS aus WP mit angesprochen wird, sondern alles
     mit diesem Code läuft
 */
-
-.dsp-none{
-    display:none;
-}
 .border-std-round{
     border-radius:0px;
 }
@@ -58,8 +54,8 @@
 }
 .card-back{
     transform: rotateY(180deg);
-    grid-template-columns:80px 80px;
-    grid-template-rows: 100px 92px 118px;
+    grid-template-columns:50px 110px;
+    grid-template-rows: 50px 230px 30px;
 }
 .card-image-front img{
     border-radius:3px;
@@ -110,32 +106,36 @@
 
 .card-overview-back hr{
     margin: -5px 20px 0px 0px;
-}   
-.card-image-back{
-    grid-column:1;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    font-size: 75px;
 }
-.card-overview-back{
+.img-name-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
     grid-column-start:1;
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 2;
+}
+.card-image-back{
+    /* background-color: hotpink; */
+
+}
+.card-overview-back{
+    /* background-color: khaki; */
+
 }
 .card-overview-back :first-child{
     margin-top:0px;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     color:#222;
-    padding-left: 55px;
+    padding-left: 10px;
     font-weight: bold;
 } 
-.card-overview-back :last-child{
-    margin-bottom:0px;
-    margin-top:18px;
-} 
 .card-description{
+    /* background-color: lavenderblush; */
     grid-column-start:1;
     grid-column-end: 3;
     grid-row-start: 2;
@@ -147,9 +147,11 @@
 
 }
 .card-call-to-action{
-    grid-column:2;
-    grid-row-start: 1;
-    grid-row-end: 2;
+    /* background-color: lightblue; */
+    grid-column-start:1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -223,7 +225,7 @@ h1{
     color:#800606;
 
 }
-#card-nav li.active{
+#card-nav li.selected{
     background-color:#800606;
     color:white;
     border-color:#800606;
@@ -242,4 +244,10 @@ ul > span::after{
 }
 ul > span::before{
     content: "| ";
+}
+.d-none{
+    display: none;
+}
+main{
+    min-height: 100%;
 }
