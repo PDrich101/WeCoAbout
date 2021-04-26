@@ -29,7 +29,8 @@ const featureRequest = [
     "Anpassung Schriftgröße Name Rückseite (Längster Name Chrysovalantis) -> umgesetzt",
     "Anpassung Schriftposition Name Rückseite (zentral zum Bild auf x-Achse) -> umgesetzt",
     "Verfügbarkeit Wesser Coach bitte wenn Design und Funktionen final sind",
-    'Lightbox mit Kontaktmöglichkeiten bei Klick auf "Kontaktieren"'
+    'Lightbox mit Kontaktmöglichkeiten bei Klick auf "Kontaktieren"',
+    "Browserkompatibilität (3 Karten nebeneinander in Safari, 2 in Chrome) -> wird durch CSS auf WesserCoach behoben"
 ]
 const allMembers = [
     {
@@ -1744,13 +1745,10 @@ const dptModule = {
             this.createSection(nextDpt)
             console.log("UPDATE CONTAINER: nextDpt", nextDpt);
             console.log("UPDATE CONTAINER: currentDpt", currentDpt);
-            
         }
         this.getNavElementByCode(currentDpt).classList.remove("selected")
         this.getNavElementByCode(nextDpt).classList.add("selected")
         this.vars.selectedDpt = nextDpt
-
-
         console.log("UPDATE CONTAINER: Final, ", this.vars.selectedDpt)
     },
     createSection(dptCode) {
@@ -2019,9 +2017,8 @@ const dptModule = {
 document.addEventListener("DOMContentLoaded", () => {
     const mainContainer = document.querySelector("main");
 
-    dptModule.init(mainContainer, "vt");
+    dptModule.init(mainContainer, "lew");
 
-    console.log("was geht???")
     const featureList = document.createElement("ul")
     featureList.setAttribute("id", "featureList")
     for (const request of featureRequest){
