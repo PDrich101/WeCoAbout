@@ -262,6 +262,7 @@ ul > span::after{
 .card-description ul > li::before{
     content: "|| ";
     color: #800606;
+    font-weight: bold;
 }
 .card-description ul > li{
     margin-bottom: 5px;
