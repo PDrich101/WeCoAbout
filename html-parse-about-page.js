@@ -24,14 +24,15 @@ const featureRequest = [
     "Versionierung -> umgesetzt",
     "Voreingestellte Abteilung (im Beispiel ist es der Vertrieb) -> umgesetzt",
     "Kontakt Button Rückseite -> umgesetzt",
-    "senkrechte Striche als Bulletpoints -> Zwischenlösung",
+    "senkrechte Striche als Bulletpoints -> umgesetzt",
     "Reduktion Kartenhöhe um 1/3 des Whitespace bei zweizeiliger Position -> Platz wird teilweise noch auf der Rückseite benötigt \/\/OnHold",
     "Anpassung Schriftgröße Name Rückseite (Längster Name Chrysovalantis) -> umgesetzt",
     "Anpassung Schriftposition Name Rückseite (zentral zum Bild auf x-Achse) -> umgesetzt",
+    "Browserkompatibilität (3 Karten nebeneinander in Safari, 2 in Chrome und FireFox) -> behoben",
+    "Sichtbarkeitsfehler der Rückseiten in Firefox -> behoben",
     "Verfügbarkeit Wesser Coach bitte wenn Design und Funktionen final sind",
-    'Lightbox mit Kontaktmöglichkeiten bei Klick auf "Kontaktieren"',
-    "Browserkompatibilität (3 Karten nebeneinander in Safari, 2 in Chrome und FireFox) -> gelöst",
-    "Sichtbarkeitsfehler der Rückseiten in Firefox"
+    'Lightbox mit Kontaktmöglichkeiten bei Klick auf "Kontaktieren"'
+
 ]
 const allMembers = [
     {
