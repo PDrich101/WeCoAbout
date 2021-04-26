@@ -2017,7 +2017,7 @@ const dptModule = {
 document.addEventListener("DOMContentLoaded", () => {
     const mainContainer = document.querySelector("main");
 
-    dptModule.init(mainContainer, "lew");
+    dptModule.init(mainContainer, "vt");
 
     const featureList = document.createElement("ul")
     featureList.setAttribute("id", "featureList")
