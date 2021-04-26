@@ -256,9 +256,6 @@ h1{
 body > h1{
     display: block;
 }
-ul > span::after{
-    content: " |";
-}
 .card-description ul > li::before{
     content: "|| ";
     color: #800606;
