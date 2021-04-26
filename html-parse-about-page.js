@@ -30,7 +30,8 @@ const featureRequest = [
     "Anpassung Schriftposition Name Rückseite (zentral zum Bild auf x-Achse) -> umgesetzt",
     "Verfügbarkeit Wesser Coach bitte wenn Design und Funktionen final sind",
     'Lightbox mit Kontaktmöglichkeiten bei Klick auf "Kontaktieren"',
-    "Browserkompatibilität (3 Karten nebeneinander in Safari, 2 in Chrome) -> wird durch CSS auf WesserCoach behoben"
+    "Browserkompatibilität (3 Karten nebeneinander in Safari, 2 in Chrome) -> wird durch CSS auf WesserCoach behoben",
+    "Sichtbarkeitsfehler der Rückseiten in Firefox"
 ]
 const allMembers = [
     {
