@@ -276,4 +276,15 @@ body > h1{
 }
 main{
     min-height: 100%;
+    width:1037px;
+    background: white;
+    margin: auto;
+    padding: 50px;
+}
+body{
+     background: #eaeaea;
+}
+*{
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }

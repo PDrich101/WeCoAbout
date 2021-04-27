@@ -175,7 +175,7 @@ const allMembers = [
         "tasks": [
             {
                 "taskNr": "1",
-                "task": "Koordination Vorstellungsgespräche"
+                "task": "Koordination Vorstellungsgespräche & Job Scouts"
             },
             {
                 "taskNr": "2",
@@ -561,7 +561,7 @@ const allMembers = [
         "tasks": [
             {
                 "taskNr": "1",
-                "task": "Konzeption und Gestaltung interner und externer Kommunikationsmittel"
+                "task": "Konzeption und Gestaltung aller Kommunikationsmittel"
             },
             {
                 "taskNr": "2",
@@ -588,7 +588,7 @@ const allMembers = [
     {
         "firstName": "Sabine",
         "lastName": "Barthlomäus",
-        "position": "",
+        "position": "Softwareentwicklerin",
         "tasks": [
             {
                 "taskNr": "1",
@@ -623,7 +623,7 @@ const allMembers = [
     {
         "firstName": "Zdenek",
         "lastName": "Drbalek",
-        "position": "Softwareentwicklung",
+        "position": "Leiter Softwareentwicklung",
         "tasks": [
             {
                 "taskNr": "1",
@@ -693,7 +693,7 @@ const allMembers = [
     {
         "firstName": "Hamed",
         "lastName": "Javaheri",
-        "position": "Softwareentwicklung",
+        "position": "Softwareentwickler",
         "tasks": [
             {
                 "taskNr": "1",
@@ -728,19 +728,19 @@ const allMembers = [
     {
         "firstName": "Harald",
         "lastName": "Ott",
-        "position": "IT Manager",
+        "position": "Leitung EDV",
         "tasks": [
             {
                 "taskNr": "1",
-                "task": "Leitung EDV-Abteilung"
-            },
-            {
-                "taskNr": "2",
                 "task": "Projektplanung"
             },
             {
-                "taskNr": "3",
+                "taskNr": "2",
                 "task": "Projektleitung"
+            },
+            {
+                "taskNr": "3",
+                "task": "Schnittstelle Mitgliederservice"
             }
         ],
         "contacts": {
@@ -763,7 +763,7 @@ const allMembers = [
     {
         "firstName": "Joachim",
         "lastName": "Welker",
-        "position": "Softwareentwicklung",
+        "position": "Softwareentwickler",
         "tasks": [
             {
                 "taskNr": "1",
@@ -775,7 +775,7 @@ const allMembers = [
             },
             {
                 "taskNr": "3",
-                "task": "Pflege und Neuerstellung der Reporten"
+                "task": "Pflege und Neuerstellung von Reporten"
             }
         ],
         "contacts": {
@@ -845,7 +845,7 @@ const allMembers = [
             },
             {
                 "taskNr": "3",
-                "task": "Kundenbetreuung Reiseteams"
+                "task": "Kundenbetreuung und Werbeplanung"
             }
         ],
         "contacts": {
@@ -1038,7 +1038,7 @@ const allMembers = [
             },
             {
                 "taskNr": "3",
-                "task": "DatenManagement (Datenverarbeitung- und Abgaben)"
+                "task": "Datenmanagement"
             }
         ],
         "contacts": {
@@ -1100,15 +1100,15 @@ const allMembers = [
         "tasks": [
             {
                 "taskNr": "1",
-                "task": "Beitragseinzug D und CH"
+                "task": "Beitragseinzug"
             },
             {
                 "taskNr": "2",
-                "task": "Rechnungstellung/ Statistiken D und CH"
+                "task": "Rechnungstellung/ Statistiken"
             },
             {
                 "taskNr": "3",
-                "task": "Kundenbetreuung und Datenmanagement D und CH"
+                "task": "Kundenbetreuung und Datenmanagement"
             }
         ],
         "contacts": {
@@ -1333,7 +1333,7 @@ const allMembers = [
     {
         "firstName": "Waldemar",
         "lastName": "Günther",
-        "position": "",
+        "position": "Special Forces",
         "tasks": [
             {
                 "taskNr": "1",
@@ -1438,14 +1438,18 @@ const allMembers = [
     {
         "firstName": "Oliver",
         "lastName": "Kunze",
-        "position": "Vertriebsleiter",
+        "position": "Vertriebsleitung JUH/ Digital Fundraising",
         "tasks": [
             {
                 "taskNr": "1",
-                "task": "Vertriebsleitung JUH"
+                "task": "Kundenbetreuung"
             },
             {
                 "taskNr": "2",
+                "task": "Ansprechpartner Teamleiter*innen"
+            },
+            {
+                "taskNr": "3",
                 "task": "Digitale Entwicklung"
             }
         ],
@@ -1504,19 +1508,19 @@ const allMembers = [
     {
         "firstName": "Marcel",
         "lastName": "Müller",
-        "position": "Vertriebsleiter",
+        "position": "Vertriebsleitung NABU, BUND und LBV",
         "tasks": [
             {
                 "taskNr": "1",
-                "task": "Vertriebsleitung NABU, BUND und LBV"
+                "task": "Kundenbetreuung"
             },
             {
                 "taskNr": "2",
-                "task": "LEW Board"
+                "task": "Ansprechpartner Teamleiter*innen"
             },
             {
                 "taskNr": "3",
-                "task": "Product Owner Tablet"
+                "task": "LEW Board"
             }
         ],
         "contacts": {
