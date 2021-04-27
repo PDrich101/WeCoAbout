@@ -1647,6 +1647,14 @@ const allMembers = [
     }
 ]
 
+const getID = (() => {
+    let counter = -1
+    return () => {
+        counter++
+        return counter
+    }
+})()
+
 const dptModule = {
     master: [],
     vars: {
@@ -1700,6 +1708,7 @@ const dptModule = {
         // und vorerst in ein Hilfsobjekt allDptMembers geschrieben
         const allDptMembers = {};
         for (const member of this.vars.allMembers) {
+            member.id = getID();
             let dptKey = member.department[0].departmentName
             // Wenn Kein Department-Key vergeben ist, weise den MA der Abteilung "na" zu 
             if (dptKey === "") {
@@ -1796,9 +1805,8 @@ const dptModule = {
         //
         const scene = document.createElement("div");
         scene.classList.add("scene");
-        scene.classList.add("border-std-round");
         scene.classList.add("aboutItem");
-        scene.setAttribute("data-dpt", member.department[0].departmentName)
+        scene.setAttribute("data-id", member.id)
         //
         // card erstellen
         //
@@ -2018,6 +2026,7 @@ const dptModule = {
         ],
         "clickContact":[function (member){
             this.vars.mainElements.lightBox.classList.remove("d-none");
+            document.querySelector("div[data-id='" + member.id + "']").querySelector(".card").classList.remove("is-flipped")
             console.log("member from clickedCard: ", member);
         }],
         "closeContact":[function(){
