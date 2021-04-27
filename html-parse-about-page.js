@@ -587,7 +587,7 @@ const allMembers = [
     },
     {
         "firstName": "Sabine",
-        "lastName": "Barthlomäus",
+        "lastName": "Bartholmess",
         "position": "Softwareentwicklerin",
         "tasks": [
             {
