@@ -1672,9 +1672,20 @@ const dptModule = {
         cardNav.setAttribute("id", "card-nav");
         const displayContainer = document.createElement("section");
         displayContainer.setAttribute("id", "display");
+        const lightBox = document.createElement("div");
+        // lightBox.classList.add("d-none");
+        lightBox.classList.add("light-box");
+        lightBox.classList.add("d-none");
+        lightBox.addEventListener("click", ()=>{this.emit("closeContact")})
+        const lightBoxContent = document.createElement("div");
+        lightBoxContent.classList.add("content-box");
+        lightBox.appendChild(lightBoxContent);
+        displayContainer.appendChild(lightBox);
         //createDisplay->in vars speichern
         this.vars.mainElements.cardNav = cardNav;
         this.vars.mainElements.displayContainer = displayContainer;
+        this.vars.mainElements.lightBox = lightBox;
+
         //Navigation und Fenster an MasterContainer anfügen
         this.vars.mainElements.mainContainer.appendChild(cardNav);
         this.vars.mainElements.mainContainer.appendChild(displayContainer);
@@ -1890,6 +1901,7 @@ const dptModule = {
         // Button erstellen als Standard
         const contactLink = document.createElement("a");
         contactLink.innerText = "Kontaktieren";
+        contactLink.addEventListener("click", ()=>{this.emit("clickContact", member)})
         CTAContainer.appendChild(contactLink)
 
         // ONHOLD
@@ -1997,13 +2009,20 @@ const dptModule = {
         "addCard": [
             function (scene) {
                 scene.addEventListener("mouseenter", () => {
-                    scene.querySelector(".card").classList.add("is-flipped")
+                    scene.querySelector(".card").classList.add("is-flipped");
                 });
                 scene.addEventListener("mouseleave", () => {
-                    scene.querySelector(".card").classList.remove("is-flipped")
+                    scene.querySelector(".card").classList.remove("is-flipped");
                 })
             }
         ],
+        "clickContact":[function (member){
+            this.vars.mainElements.lightBox.classList.remove("d-none");
+            console.log("member from clickedCard: ", member);
+        }],
+        "closeContact":[function(){
+            this.vars.mainElements.lightBox.classList.add("d-none");
+        }]
     },
     emit(eventName, param) {
         if (eventName in this.events) {
