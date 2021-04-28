@@ -728,7 +728,7 @@ const allMembers = [
     {
         "firstName": "Harald",
         "lastName": "Ott",
-        "position": "Leitung EDV",
+        "position": "Leitung IT-Abteilung",
         "tasks": [
             {
                 "taskNr": "1",
@@ -1438,7 +1438,7 @@ const allMembers = [
     {
         "firstName": "Oliver",
         "lastName": "Kunze",
-        "position": "Vertriebsleitung JUH/ Digital Fundraising",
+        "position": "Vertriebsleitung JUH / Digital Fundraising",
         "tasks": [
             {
                 "taskNr": "1",
@@ -1680,6 +1680,7 @@ const dptModule = {
         cardNav.setAttribute("id", "card-nav");
         const displayContainer = document.createElement("section");
         displayContainer.setAttribute("id", "display");
+        // const lightBox = createLightBox();
         const lightBox = document.createElement("div");
         // lightBox.classList.add("d-none");
         lightBox.classList.add("light-box");
@@ -1687,7 +1688,7 @@ const dptModule = {
         lightBox.addEventListener("click", ()=>{this.emit("closeContact")})
         const lightBoxContent = document.createElement("div");
         lightBoxContent.classList.add("content-box");
-        lightBox.appendChild(lightBoxContent);
+        lightBox.appendChild(lightBoxContent);  
         displayContainer.appendChild(lightBox);
         //createDisplay->in vars speichern
         this.vars.mainElements.cardNav = cardNav;
@@ -1702,6 +1703,9 @@ const dptModule = {
         console.log("INIT",this.master)
 
         this.createContainer()
+    },
+    createLightBox(){
+
     },
     createMaster() {
         // Alle Mitarbeiter werden der jeweils gesetzten Abteilung zugeordnet,
