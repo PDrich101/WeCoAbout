@@ -163,25 +163,23 @@
 
 }
 .card-call-to-action{
-    color:#800606;
-    border:1px solid #800606;
-    font-size: 1.4em;
-    border-radius: 5px;
     grid-column-start:1;
     grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 4;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items:center;
     cursor: pointer;
-    flex-wrap: wrap;
 }
-.card-call-to-action img{
-    height:23px;
-    width:23px;
-    margin:4px;
+
+.card-call-to-action a{
+    color:#800606;
+    border:1px solid #800606;
+    border-radius: 3px;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    font-size: 1.4em;
+    text-align: center;
+    padding: 5px;        
 }
 .card-overview :first-child{
     margin-top: 25px;
@@ -310,4 +308,5 @@ body{
     right: 0;
     left:0;
     margin:auto;
+    border-radius: 5px;
 }
