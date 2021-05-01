@@ -310,3 +310,6 @@ body{
     margin:auto;
     border-radius: 5px;
 }
+.oflowhide{
+    overflow: hidden;
+}

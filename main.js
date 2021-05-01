@@ -2032,9 +2032,11 @@ const dptModule = {
             this.vars.mainElements.lightBox.classList.remove("d-none");
             document.querySelector("div[data-id='" + member.id + "']").querySelector(".card").classList.remove("is-flipped")
             console.log("member from clickedCard: ", member);
+            document.querySelector("body").classList.add("oflowhide")
         }],
         "closeContact":[function(){
             this.vars.mainElements.lightBox.classList.add("d-none");
+            document.querySelector("body").classList.remove("oflowhide")
         }]
     },
     emit(eventName, param) {
