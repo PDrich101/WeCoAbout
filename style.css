@@ -277,7 +277,16 @@ main{
     width:1037px;
     background: white;
     margin: auto;
-    padding: 50px;
+    padding: 50px 198px;
+}
+main p{
+    margin-bottom: 45px;
+    text-align: justify;
+}
+h2{
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 25px;
 }
 body{
      background: #eaeaea;
