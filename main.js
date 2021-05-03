@@ -17,21 +17,6 @@ const dptCodes = {
     lew: "Lokal Erfolgreich Werben"
 }
 const featureRequest = [
-    "Mitarbeiter Suche (Anm.: nett, doch geht ein User eher auf eine Suchleiste und tippt etwas oder klickt er eher 2-3 Karten durch?)",
-    "Registerkarte 'Empfohlen' oder 'Relevant' -> umsetzbar, nur die Vorbedingungen müssen klar sein (Wie viele 'User-Level' soll es geben (NC, erste, Woche, zweite Wochen, TC, Coach, VT)? Das ist abhängig von der Struktur, die durch Wordpress und das Studio bereitgestellt wird) UND ein Team muss sich hinsetzten und definieren, für welche User-Level der jeweilige Mitarbeiter relevant ist.",
-    "Filter nach Abteilungen -> umgesetzt",
-    "Online Verfügbarkeit -> umgesetzt",
-    "Versionierung -> umgesetzt",
-    "Voreingestellte Abteilung (im Beispiel ist es der Vertrieb) -> umgesetzt",
-    "Kontakt Button Rückseite -> umgesetzt",
-    "senkrechte Striche als Bulletpoints -> umgesetzt",
-    "Reduktion Kartenhöhe um 1/3 des Whitespace bei zweizeiliger Position -> Platz wird teilweise noch auf der Rückseite benötigt \/\/OnHold",
-    "Anpassung Schriftgröße Name Rückseite (Längster Name Chrysovalantis) -> umgesetzt",
-    "Anpassung Schriftposition Name Rückseite (zentral zum Bild auf x-Achse) -> umgesetzt",
-    "Browserkompatibilität (3 Karten nebeneinander in Safari, 2 in Chrome und FireFox) -> behoben",
-    "Sichtbarkeitsfehler der Rückseiten in Firefox -> behoben",
-    "Verfügbarkeit Wesser Coach bitte wenn Design und Funktionen final sind",
-    'Lightbox mit Kontaktmöglichkeiten bei Klick auf "Kontaktieren"'
 
 ]
 const allMembers = [
@@ -2058,19 +2043,5 @@ document.addEventListener("DOMContentLoaded", () => {
     const mainContainer = document.querySelector("main");
 
     dptModule.init(mainContainer, "vt");
-
-    const featureList = document.createElement("ul")
-    featureList.setAttribute("id", "featureList")
-    for (const request of featureRequest){
-        const liElement = document.createElement("li");
-        liElement.innerText = request;
-        featureList.appendChild(liElement);
-    }
-    const heading = document.createElement("h1");
-    heading.innerText = "Feature Liste"
-    mainContainer.before(heading)
-    mainContainer.before(featureList);
-
-    window.location = "#card-nav"
-
+    
 })
