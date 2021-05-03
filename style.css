@@ -279,7 +279,7 @@ main{
     margin: auto;
     padding: 50px 198px;
 }
-main p{
+main>p{
     margin-bottom: 45px;
     text-align: justify;
 }
