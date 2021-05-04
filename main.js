@@ -540,6 +540,41 @@ const allMembers = [
         ]
     },
     {
+        "firstName": "Ajjana",
+        "lastName": "Baumeister",
+        "position": "Kommunikation & Corporate Social Responsibility",
+        "tasks": [
+            {
+                "taskNr": "1",
+                "task": "Interne und externe Kommunikation"
+            },
+            {
+                "taskNr": "2",
+                "task": "Verwaltung Wesser University"
+            },
+            {
+                "taskNr": "3",
+                "task": "Product Owner Wesser Studio"
+            }
+        ],
+        "contacts": {
+            "officePhone": "",
+            "mobilePhone": "",
+            "mail": "",
+            "whatsapp": "",
+            "telegram": "",
+            "signal": ""
+        },
+        "image-front": "Bilder/ajjana_baumeister_2021_2.jpg",
+        "image-back": "",
+        "department": [
+            {
+                "departmentName": "gfk",
+                "departmentPosition": ""
+            }
+        ]
+    },
+    {
         "firstName": "Tonia",
         "lastName": "Gieray",
         "position": "Grafikerin",
@@ -781,41 +816,6 @@ const allMembers = [
         ]
     },
     {
-        "firstName": "Benita",
-        "lastName": "Renz",
-        "position": "Mitarbeiterentwicklung/ -betreuung",
-        "tasks": [
-            {
-                "taskNr": "1",
-                "task": "Fulltimer"
-            },
-            {
-                "taskNr": "2",
-                "task": "Mitarbeiterbetreuung Reiseteams"
-            },
-            {
-                "taskNr": "3",
-                "task": "Wesser-Spiel"
-            }
-        ],
-        "contacts": {
-            "officePhone": "",
-            "mobilePhone": "",
-            "mail": "",
-            "whatsapp": "",
-            "telegram": "",
-            "signal": ""
-        },
-        "image-front": "Bilder/benita_renz_2021_1.jpg",
-        "image-back": "",
-        "department": [
-            {
-                "departmentName": "ftm",
-                "departmentPosition": ""
-            }
-        ]
-    },
-    {
         "firstName": "Marko",
         "lastName": "Frech",
         "position": "Regionalmanager neue Bundesländer",
@@ -842,6 +842,41 @@ const allMembers = [
             "signal": ""
         },
         "image-front": "Bilder/marko_frech_2021_1.jpg",
+        "image-back": "",
+        "department": [
+            {
+                "departmentName": "ftm",
+                "departmentPosition": ""
+            }
+        ]
+    },
+    {
+        "firstName": "Benita",
+        "lastName": "Renz",
+        "position": "Mitarbeiterentwicklung/ -betreuung",
+        "tasks": [
+            {
+                "taskNr": "1",
+                "task": "Fulltimer"
+            },
+            {
+                "taskNr": "2",
+                "task": "Mitarbeiterbetreuung Reiseteams"
+            },
+            {
+                "taskNr": "3",
+                "task": "Wesser-Spiel"
+            }
+        ],
+        "contacts": {
+            "officePhone": "",
+            "mobilePhone": "",
+            "mail": "",
+            "whatsapp": "",
+            "telegram": "",
+            "signal": ""
+        },
+        "image-front": "Bilder/benita_renz_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -881,41 +916,6 @@ const allMembers = [
         "department": [
             {
                 "departmentName": "gsl",
-                "departmentPosition": ""
-            }
-        ]
-    },
-    {
-        "firstName": "Ajjana",
-        "lastName": "Baumeister",
-        "position": "Kommunikation & Corporate Social Responsibility",
-        "tasks": [
-            {
-                "taskNr": "1",
-                "task": "Interne und externe Kommunikation"
-            },
-            {
-                "taskNr": "2",
-                "task": "Verwaltung Wesser University"
-            },
-            {
-                "taskNr": "3",
-                "task": "Product Owner Wesser Studio"
-            }
-        ],
-        "contacts": {
-            "officePhone": "",
-            "mobilePhone": "",
-            "mail": "",
-            "whatsapp": "",
-            "telegram": "",
-            "signal": ""
-        },
-        "image-front": "Bilder/ajjana_baumeister_2021_2.jpg",
-        "image-back": "",
-        "department": [
-            {
-                "departmentName": "gfk",
                 "departmentPosition": ""
             }
         ]
@@ -1116,7 +1116,7 @@ const allMembers = [
     {
         "firstName": "Anita",
         "lastName": "Bauer",
-        "position": "",
+        "position": "Rechnungswesen",
         "tasks": [
             {
                 "taskNr": "1",
@@ -1151,7 +1151,7 @@ const allMembers = [
     {
         "firstName": "Manfred",
         "lastName": "Binder",
-        "position": "",
+        "position": "Rechnungswesen",
         "tasks": [
             {
                 "taskNr": "1",
@@ -1182,7 +1182,7 @@ const allMembers = [
     {
         "firstName": "Gerhilde",
         "lastName": "Depner",
-        "position": "",
+        "position": "Rechnungswesen",
         "tasks": [
             {
                 "taskNr": "1",
@@ -1217,7 +1217,7 @@ const allMembers = [
     {
         "firstName": "Ludmila",
         "lastName": "Dönges",
-        "position": "",
+        "position": "Rechnungswesen",
         "tasks": [
             {
                 "taskNr": "1",
@@ -1252,7 +1252,7 @@ const allMembers = [
     {
         "firstName": "Irene",
         "lastName": "Kisselew",
-        "position": "",
+        "position": "Rechnungswesen",
         "tasks": [
             {
                 "taskNr": "1",
@@ -1283,7 +1283,7 @@ const allMembers = [
     {
         "firstName": "Sibylle",
         "lastName": "Wesser",
-        "position": "",
+        "position": "Rechnungswesen",
         "tasks": [
             {
                 "taskNr": "1",
