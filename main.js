@@ -12,7 +12,7 @@ const dptCodes = {
     gsl: "Geschäftsleitung",
     rw: "Rechnungswesen",
     gfk: "Kommunikation und Design",
-    suv: "Sekretariat und Verwaltung",
+    suv: "Verwaltung",
     na: "Nicht angegebene Abteilung",
     lew: "Lokal Erfolgreich Werben"
 }
