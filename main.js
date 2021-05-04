@@ -12,7 +12,7 @@ const dptCodes = {
     gsl: "Geschäftsleitung",
     rw: "Rechnungswesen",
     gfk: "Kommunikation und Design",
-    suv: "Verwaltung",
+    vwt: "Verwaltung",
     na: "Nicht angegebene Abteilung",
     lew: "Lokal Erfolgreich Werben"
 }
@@ -911,7 +911,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/ajjana_baumeister_2021_1.jpg",
+        "image-front": "Bilder/ajjana_baumeister_2021_2.jpg",
         "image-back": "",
         "department": [
             {
@@ -1345,7 +1345,7 @@ const allMembers = [
         "image-back": "",
         "department": [
             {
-                "departmentName": "suv",
+                "departmentName": "vwt",
                 "departmentPosition": ""
             }
         ]
