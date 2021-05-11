@@ -52,7 +52,7 @@ const allMembers = [
             "1": "",
             "2": ""
         },
-        "image-front": "Bilder/julia_burkhardt_2021_1.jpg",
+        "image-front": "julia_burkhardt_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -87,7 +87,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/katja_köhler_2021_1.jpg",
+        "image-front": "katja_köhler_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -109,7 +109,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/laura_maas_2021_1.jpg",
+        "image-front": "laura_maas_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -144,7 +144,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/anouk_pardon_2021_1.jpg",
+        "image-front": "anouk_pardon_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -179,7 +179,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/saskia_schirrmacher_2021_1.jpg",
+        "image-front": "saskia_schirrmacher_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -214,7 +214,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/sarah_stäbler_2021_1.jpg",
+        "image-front": "sarah_stäbler_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -236,7 +236,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/jennifer_vrana_2021_1.jpg",
+        "image-front": "jennifer_vrana_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -271,7 +271,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/meike_weber_2021_1.jpg",
+        "image-front": "meike_weber_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -306,7 +306,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/robert_werzer_2021_1.jpg",
+        "image-front": "robert_werzer_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -486,7 +486,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/robert_ritter_2021_1.jpg",
+        "image-front": "robert_ritter_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -565,7 +565,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/ajjana_baumeister_2021_2.jpg",
+        "image-front": "ajjana_baumeister_2021_2.jpg",
         "image-back": "",
         "department": [
             {
@@ -596,7 +596,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/tonia_gieray_2021_1.jpg",
+        "image-front": "tonia_gieray_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -631,7 +631,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/sabine_bartholmess_2021_1.jpg",
+        "image-front": "sabine_bartholmess_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -666,7 +666,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/zdenek_drbalek_2021_1.jpg",
+        "image-front": "zdenek_drbalek_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -701,7 +701,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/volker_hohmann_2021_1.jpg",
+        "image-front": "volker_hohmann_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -771,7 +771,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/harrald_ott_2021_1.jpg",
+        "image-front": "harrald_ott_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -806,7 +806,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/joachim_welker_2021_1.jpg",
+        "image-front": "joachim_welker_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -841,7 +841,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/marko_frech_2021_1.jpg",
+        "image-front": "marko_frech_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -876,7 +876,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/benita_renz_2021_1.jpg",
+        "image-front": "benita_renz_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -911,7 +911,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/peter_renz_2021_1.jpg",
+        "image-front": "peter_renz_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -1034,7 +1034,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/jutta_anderson_2021_1.jpg",
+        "image-front": "jutta_anderson_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -1069,7 +1069,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/ann_katrin_eberhardt_2021_1.jpg",
+        "image-front": "ann_katrin_eberhardt_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -1104,7 +1104,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/karla_wachsmann_2021_1.jpg",
+        "image-front": "karla_wachsmann_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -1139,7 +1139,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/anita_bauer_2021_1.jpg",
+        "image-front": "anita_bauer_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -1240,7 +1240,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/ludmila_dönges.jpg",
+        "image-front": "ludmila_dönges.jpg",
         "image-back": "",
         "department": [
             {
@@ -1306,7 +1306,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/sibylle_wesser_2021_1.jpg",
+        "image-front": "sibylle_wesser_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -1341,7 +1341,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/waldemar_günther_2021_1.jpg",
+        "image-front": "waldemar_günther_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -1376,7 +1376,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/alexander_helwig_2021_1.jpg",
+        "image-front": "alexander_helwig_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -1446,7 +1446,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/oliver_kunze_2021_1.jpg",
+        "image-front": "oliver_kunze_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -1481,7 +1481,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/patrick_loest_2021_1.jpg?v_DATE",
+        "image-front": "patrick_loest_2021_1.jpg?v_DATE",
         "image-back": "",
         "department": [
             {
@@ -1516,7 +1516,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/marcel_mueller_2021_1.jpg?v_DATE",
+        "image-front": "marcel_mueller_2021_1.jpg?v_DATE",
         "image-back": "",
         "department": [
             {
@@ -1551,7 +1551,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/oliver_schaugg_2021_1.jpg",
+        "image-front": "oliver_schaugg_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -1586,7 +1586,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/anesa_shabani_2021_1.jpg",
+        "image-front": "anesa_shabani_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -1621,7 +1621,7 @@ const allMembers = [
             "telegram": "",
             "signal": ""
         },
-        "image-front": "Bilder/dayna_tscharnke_2021_1.jpg",
+        "image-front": "dayna_tscharnke_2021_1.jpg",
         "image-back": "",
         "department": [
             {
@@ -1649,9 +1649,10 @@ const dptModule = {
         navElementUL: [],
         dptSection: {},
     },
-    init(mainContainer, defaultDpt) {
+    init(mainContainer, defaultDpt, path) {
         this.vars.mainElements.mainContainer = mainContainer
         this.vars.selectedDpt = defaultDpt;
+        this.vars.path =path;
         // JSON parsen oder in dem Fall definieren
         this.vars.allMembers = allMembers;
         //createMaster
@@ -1814,10 +1815,10 @@ const dptModule = {
         imageFrontContainer.classList.add("card-image-front");
         const imageFront = document.createElement("img");
         if (member["image-front"] != "") {
-            imageFront.setAttribute("src", member["image-front"]);
+            imageFront.setAttribute("src", this.vars.path + member["image-front"]);
             imageFront.setAttribute("alt", "Titelbild von " + member.firstName + " " + member.lastName);
         } else {
-            imageFront.setAttribute("src", "Bilder/usersecret.jpg");
+            imageFront.setAttribute("src", this.vars.path + "usersecret.jpg");
             imageFront.setAttribute("alt", "Anonymes Titelbild von " + member.firstName + " " + member.lastName);
         }
         imageFrontContainer.appendChild(imageFront);
@@ -1852,13 +1853,13 @@ const dptModule = {
         const imageBack = document.createElement("img");
         // Wenn imageBack vorhanden:nutzen, wenn nicht:nutze imageFront, wenn das nicht vorhanden:nutze Default
         if (member["image-back"] != "") {
-            imageBack.setAttribute("src", member["image-back"]);
+            imageFront.setAttribute("src", this.vars.path + member["image-back"]);
             imageBack.setAttribute("alt", "Sekundäres Titelbild von " + member.firstName + " " + member.lastName);
         } else if (member["image-front"] != "") {
-            imageBack.setAttribute("src", member["image-front"]);
+            imageBack.setAttribute("src", this.vars.path + member["image-front"]);
             imageBack.setAttribute("alt", "Titelbild von " + member.firstName + " " + member.lastName);
         } else {
-            imageBack.setAttribute("src", "Bilder/usersecret.jpg");
+            imageBack.setAttribute("src", this.vars.path + "usersecret.jpg");
             imageBack.setAttribute("alt", "Anonymes Titelbild von " + member.firstName + " " + member.lastName);
         }
         imageBackContainer.appendChild(imageBack);
@@ -2042,6 +2043,6 @@ const dptModule = {
 document.addEventListener("DOMContentLoaded", () => {
     const mainContainer = document.querySelector("main");
 
-    dptModule.init(mainContainer, "vt");
+    dptModule.init(mainContainer, "vt", "Bilder/");
     
 })

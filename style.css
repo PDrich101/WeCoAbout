@@ -1,6 +1,11 @@
 /*  Ziel: Modulares CSS, sodass kein Custom CSS aus WP mit angesprochen wird, sondern alles
     mit diesem Code läuft
 */
+:root{
+    --breakpoint-mobile:800px;
+}
+
+
 .border-std-round{
     border-radius:0px;
 }
@@ -231,6 +236,7 @@ h1{
 }
 #card-nav ul{
     list-style-type: none;
+    padding:0px;
 }
 #card-nav li{
     cursor: pointer;
@@ -321,4 +327,21 @@ body{
 }
 .oflowhide{
     overflow: hidden;
+}
+
+/* mobiles CSS */
+
+@media screen and (max-width: 850px) {
+    main{
+        width:100%;
+        padding:50px 20px;
+    }
+
+    section{
+        width:100%;
+    }
+    .light-box > .content-box{
+        width:70%;
+        height:80%;
+    }
 }
