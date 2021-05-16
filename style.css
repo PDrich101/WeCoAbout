@@ -1,71 +1,259 @@
 /*  Ziel: Modulares CSS, sodass kein Custom CSS aus WP mit angesprochen wird, sondern alles
     mit diesem Code läuft
 */
-:root{
-    --breakpoint-mobile:800px;
+/********************************************************************************
+*
+* Basis CSS
+*
+*/
+*{
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body{
+     background: #eaeaea;
+     margin: 0px;
 }
 
-
-.border-std-round{
-    border-radius:0px;
-}
-/* 3D Space */
+/******************************************************************************** 
+*
+* Basis Layout
+*
+*/
 .scene{
     width: 190px;
     height: 340px;
-    perspective: 900px;
-    background-color: transparent;
     margin: 11px;
+    background-color: transparent;
 }
-/* 3D Objekt */
 .card{
     width: 100%;
     height: 100%;
-    position: relative;
-    transition: transform .45s;
-    transition-delay: 150ms;
-    transform-style: preserve-3d;
- 
     border-radius: 15px;
 }
-.card.is-flipped {
-    transform: rotateY(180deg);
-}
-.card-front{
- 
-    -webkit-backface-visibility: hidden; /* Safari */
-    backface-visibility: hidden;
-    position: absolute;
-    /* height: 100%;
-    width: 100%; */
+.card-front, .card-back{
     padding: 15px;
     border-radius: 5px;
     box-shadow: 1px 2px 13px 2px rgba(0, 0, 0, 0.12);
     display: grid;
     max-width: 100%;
-    transform: rotateY(0deg);
 }
-.card-back{
-    
+section{
+    width: 641px;
+    margin: auto;
+}
+.cardContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+main{
+    min-height: 100%;
+    width:1037px;
+    background: white;
+    margin: auto;
+    padding: 50px 198px;
+}
+.d-none{
+    display: none;
+}
+/********************************************************************************
+*
+* CSS Animationen
+*
+*/
+/* 3D Space */
+.scene{
+    perspective: 900px;
+}
+/* 3D Objekt */
+.card{
+    position: relative;
+    transition: transform .45s;
+    transition-delay: 150ms;
+    transform-style: preserve-3d;
+}
+.card.is-flipped {
+    transform: rotateY(-180deg);
+}
+.card-front{
     -webkit-backface-visibility: hidden; /* Safari */
     backface-visibility: hidden;
     position: absolute;
-    /* height: 310px;
-    width: 160px; */
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 1px 2px 13px 2px rgba(0, 0, 0, 0.12);
-    display: grid;
+    transform: rotateY(0deg); /* für Firefox */
 }
+.card-back{
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    position: absolute;
+}
+
+/********************************************************************************
+*
+* Layouts
+*
+*/
+
+/* Allgemein */
+h2{
+    margin-bottom: 25px;
+}
+/* Layout Card Front */
 .card-front{
     grid-template-columns: 1fr;
     grid-template-rows: 200px 110px;
 }
+.card-image-front{
+    grid-column:1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    text-align: center;
+    font-size: 150px;
+}
+.card-overview-front{
+    grid-column:1;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.card-overview-front :last-child{
+    padding-top:5px;
+}
+.card-overview-front p {
+    margin: 10px 0px 0px 0px;
+}
+.card-overview-front :last-child{
+    margin-top:7px;
+    border-top:0.8px solid #666;
+}
+
+/* Layout Card Back */
 .card-back{
-    transform: rotateY(180deg);
     grid-template-columns:50px 110px;
     grid-template-rows: 50px 230px 30px;
 }
+.card-image-back{
+    grid-column-start:1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+.card-overview-back{
+    grid-column-start:2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.card-description{
+    grid-column-start:1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.card-call-to-action{
+    grid-column-start:1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    cursor: pointer;
+}
+.card-overview-back :first-child{
+    margin-top:-3px;
+}
+.card-overview-back p{
+    margin-top:0px;
+    padding-left: 7px;
+    margin-bottom: 0px; 
+}
+.card-description > ul {
+    margin: 0px;
+    padding-left:0em;
+    list-style-type: none;
+    list-style-position: outside;
+}
+.card-description > p {
+    margin-top: 10px;
+}
+.card-description ul > li::before{
+    content: "|| ";
+    color: #800606;
+    font-weight: bold;
+}
+.card-description ul > li{
+    margin-bottom: 5px;
+}
+.card-description p{
+    border-top: 0.8px solid #666;
+    padding-top: 5px;
+    margin-top: 8px;
+}
+.card-call-to-action a{
+    border:1px solid #800606;
+    border-radius: 3px;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding: 5px;        
+}
+
+/********************************************************************************
+*
+* Typographie
+*
+*/
+
+/* Allgemein */
+a:any-link{color: black;
+}
+html{
+    font-family: Noto Sans SC;
+    font-size: 62.5%;
+    line-height: 1.8em;
+}
+p,ul,ol{
+    font-size: 1.4em;
+}
+h2{
+    text-align: center;
+    font-size: 2em;
+}
+/* Card Vorderseite */
+.card-overview-front :first-child{
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color:#222;
+}
+.card-overview-front :last-child{
+    font-size: 1.3em;
+    color:#666;
+}
+
+/* Card Rückseite */
+.card-overview-back p{
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+    color:#222;
+    font-weight: bold;
+}
+.card-call-to-action a{
+    color:#800606;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+/********************************************************************************
+*
+* Bilder
+*
+*/
+
 .card-image-front img{
     border-radius:3px;
     width: 160px;
@@ -78,161 +266,13 @@
     margin-top: 0px;
     object-fit: cover;
 }
-.card-image-front{
-    grid-column:1;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    text-align: center;
-    font-size: 150px;
-}
-/* Name, Vorname, Position Vorderseite*/
 
-.card-overview-front{
-    grid-column:1;
-    grid-row-start: 2;
-    grid-row-end: 3;
-}
-.card-overview-front :first-child{
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color:#222;
-}
-
-.card-overview-front p {
-    margin: 10px 0px 0px 0px;
-    
-}
-.card-overview-front :last-child{
-    margin-top:7px;
-    font-size: 1.3em;
-    color:#666;
-    border-top:0.8px solid #666;
-    padding-top:5px;
-}
-
-/* Name, Vorname, Position Rückseite*/
-
-.card-overview-back :first-child{
-    margin-top:-3px;
-}
-.img-name-container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    grid-column-start:1;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 2;
-}
-.card-image-back{
-    /* background-color: hotpink; */
-    grid-column-start:1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 2;
-
-}
-.card-overview-back{
-    /* background-color: khaki; */
-    grid-column-start:2;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-}
-.card-overview-back p{
-    font-size: 1.1em;
-    margin-top:0px;
-    text-transform: uppercase;
-    letter-spacing: 0.2px;
-    color:#222;
-    padding-left: 7px;
-    font-weight: bold;
-    margin-bottom: 0px;
-} 
-.card-description{
-    /* background-color: lavenderblush; */
-    grid-column-start:1;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 3;
-
-}
-.card-description > p {
-    margin-top: 10px;
-
-}
-.card-call-to-action{
-    grid-column-start:1;
-    grid-column-end: 3;
-    grid-row-start: 3;
-    grid-row-end: 4;
-    cursor: pointer;
-}
-
-.card-call-to-action a{
-    color:#800606;
-    border:1px solid #800606;
-    border-radius: 3px;
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    font-size: 1.4em;
-    text-align: center;
-    padding: 5px;        
-}
-.card-overview :first-child{
-    margin-top: 25px;
-}
-a:any-link{color: black;}
-
-
-/* Flexcontainer für Abteilungen */
-section{
-    width: 641px;
-    margin: auto;
-    
-}
-.cardContainer{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: auto;
-}
-hr{
-    margin: 10px 0px 0px 0px;
-}   
-.card-description > ul {
-    margin: 0px;
-    padding-left:0em;
-    list-style-type: none;
-    list-style-position: outside;
-}
-html{
-    font-family: Noto Sans SC;
-    font-size: 62.5%;
-    line-height: 1.8em;
-}
-p,ul,ol{
-    font-size: 1.4em;
-}
-i{
-    font-size: 2.3em;
-}
-h1{
-    margin: 0.8em;;
-    font-size:3em;
-    text-align: center;  
-    display: none;  
-}
-#card-nav{
+/********************************************************************************
+*
+* Navigation
+*
+*/
+.card-back{
     text-align: center;
 }
 #card-nav ul{
@@ -254,55 +294,12 @@ h1{
     color:white;
     border-color:#800606;
 }
-#featureList{
-    list-style-type: disc;
-}
-#featureList li{
-    margin:10px;
-}
-body > h1{
-    display: block;
-}
-.card-description ul > li::before{
-    content: "|| ";
-    color: #800606;
-    font-weight: bold;
-}
-.card-description ul > li{
-    margin-bottom: 5px;
-}
-.card-description p{
-    border-top: 0.8px solid #666;
-    padding-top: 5px;
-    margin-top: 8px;
-}
-.d-none{
-    display: none;
-}
-main{
-    min-height: 100%;
-    width:1037px;
-    background: white;
-    margin: auto;
-    padding: 50px 198px;
-}
-main>p{
-    margin-bottom: 45px;
-    text-align: justify;
-}
-h2{
-    text-align: center;
-    font-size: 2em;
-    margin-bottom: 25px;
-}
-body{
-     background: #eaeaea;
-     margin: 0px;
-}
-*{
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
+
+/********************************************************************************
+*
+* Light Box
+*
+*/
 .light-box{
     position: fixed;
     z-index: 1; 
@@ -331,7 +328,11 @@ body{
     overflow: hidden;
 }
 
-/* mobiles CSS */
+/********************************************************************************
+*
+* Mobile Anpassungen
+*
+*/
 
 @media screen and (max-width: 850px) {
     main{
