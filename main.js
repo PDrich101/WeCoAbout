@@ -1653,6 +1653,9 @@ const dptModule = {
         this.vars.mainElements.mainContainer = mainContainer
         this.vars.selectedDpt = defaultDpt;
         this.vars.path =path;
+        // Modus Desktop oder Mobil Herausfinden
+
+
         // JSON parsen oder in dem Fall definieren
         this.vars.allMembers = allMembers;
         //createMaster
@@ -1666,20 +1669,9 @@ const dptModule = {
         cardNav.setAttribute("id", "card-nav");
         const displayContainer = document.createElement("section");
         displayContainer.setAttribute("id", "display");
-        // const lightBox = createLightBox();
-        const lightBox = document.createElement("div");
-        // lightBox.classList.add("d-none");
-        lightBox.classList.add("light-box");
-        lightBox.classList.add("d-none");
-        lightBox.addEventListener("click", ()=>{this.emit("closeContact")})
-        const lightBoxContent = document.createElement("div");
-        lightBoxContent.classList.add("content-box");
-        lightBox.appendChild(lightBoxContent);  
-        displayContainer.appendChild(lightBox);
         //createDisplay->in vars speichern
         this.vars.mainElements.cardNav = cardNav;
         this.vars.mainElements.displayContainer = displayContainer;
-        this.vars.mainElements.lightBox = lightBox;
 
         //Navigation und Fenster an MasterContainer anfügen
         this.vars.mainElements.mainContainer.appendChild(cardNav);
@@ -1690,9 +1682,59 @@ const dptModule = {
 
         this.createContainer()
     },
-    createLightBox(){
+    createLightBox(member){
+        console.log("createLightBox aufgerufen", member)
+        //lightBox inkl. Klassen erstellen
+        const lightBoxOverlay = document.createElement("div");
+        lightBoxOverlay.classList.add("light-box");
+        lightBoxOverlay.setAttribute("id", "lightbox");
+        // Klick-Listener für die gesamte Fläche hinzufügen
+        lightBoxOverlay.addEventListener("click", ()=>{this.emit("closeLightBox")});
+        //contentBox inkl. Klassen erstellen
+        const lightBoxContent = document.createElement("div");
 
-    },
+        lightBoxContent.addEventListener("click",(event) =>{event.stopPropagation();})
+        lightBoxContent.classList.add("content-box");
+        //Bildcontainer mit Bild und Klassen erstellen
+        const imageContainer = document.createElement("div");
+        imageContainer.classList.add("card-image-lightbox");
+        const image = document.createElement("img");
+        if (member["image-front"] != "") {
+            image.setAttribute("src", this.vars.path + member["image-front"]);
+            image.setAttribute("alt", "Titelbild von " + member.firstName + " " + member.lastName);
+        } else {
+            image.setAttribute("src", this.vars.path + "usersecret.jpg");
+            image.setAttribute("alt", "Anonymes Titelbild von " + member.firstName + " " + member.lastName);
+        }
+        imageContainer.appendChild(image);
+        //Namecontainer mit Name und Position erstellen
+        const nameContainer = document.createElement("div");
+        nameContainer.classList.add("card-overview-lightbox");
+        const firstName = document.createElement("p");
+        firstName.innerText = member.firstName;
+        const lastName = document.createElement("p");
+        lastName.innerText = member.lastName;
+        const position = document.createElement("p");
+        position.innerText = member.position;
+        nameContainer.appendChild(firstName);
+        nameContainer.appendChild(lastName);
+        nameContainer.appendChild(position);
+
+
+
+        // Image und nameContainer in contentBox einfügen
+        lightBoxContent.appendChild(imageContainer);
+        lightBoxContent.appendChild(nameContainer);
+        // ContentBox und 
+        lightBoxOverlay.appendChild(lightBoxContent);
+        this.vars.mainElements.lightBox = lightBoxOverlay;
+        this.vars.mainElements.mainContainer.appendChild(lightBoxOverlay);
+    }
+    ,
+    /**
+     * Erstellung des Master-Arrays, auf dem die weitere Programmstruktur aufbaut.
+     * In verknüpfung mit der createSingleDepartment-Funktion 
+     */
     createMaster() {
         // Alle Mitarbeiter werden der jeweils gesetzten Abteilung zugeordnet,
         // und vorerst in ein Hilfsobjekt allDptMembers geschrieben
@@ -1724,6 +1766,13 @@ const dptModule = {
             this.master.push(newDpt);
         }
     },
+    /**
+     * Nachdem alle Mitarbeiter von der createMaster-Funktion in die Abteilungen zugewiesen worden sind,
+     * erstellt diese Funktion das fertige Abteilungs-Objekt
+     * @param {string} key - Das Abteilungs-Kürzel
+     * @param {array} array - Die Mitarbeiter einer Abteilung
+     * @returns Abteilungs-Objekt
+     */
     createSingleDepartment(key, array) {
         const finalObject = {};
         finalObject.code = key;
@@ -1731,6 +1780,14 @@ const dptModule = {
         finalObject.members = array;
         return finalObject;
     },
+    /**
+     * "Container" bezeichnet hier die Einheit aus Navigation und Anzeige der Karten
+     * Die Navigation wird aufgrund der Abteilungen im Master-Array erstellt
+     * Die Sektion mit den Karten wird aufgrund der selected-Variable erstellt, die als
+     * default bei init-Aufruf übergeben werden muss.
+     * 
+     * @returns 
+     */
     createContainer() {
         //...basierend auf Master und vars
         const cardNavigationUL = document.createElement("ul")
@@ -1748,7 +1805,6 @@ const dptModule = {
         this.createSection(this.vars.selectedDpt);
 
         console.log("CREATE CONTAINER: ",this.vars.dptSection)
-        return true;
     },
     updateContainer(currentDpt, nextDpt) {
         // Wenn die Abteilung in this.vars.dptSection schon existiert, display-Eigeneschaft ändern
@@ -1853,7 +1909,7 @@ const dptModule = {
         const imageBack = document.createElement("img");
         // Wenn imageBack vorhanden:nutzen, wenn nicht:nutze imageFront, wenn das nicht vorhanden:nutze Default
         if (member["image-back"] != "") {
-            imageFront.setAttribute("src", this.vars.path + member["image-back"]);
+            imageBack.setAttribute("src", this.vars.path + member["image-back"]);
             imageBack.setAttribute("alt", "Sekundäres Titelbild von " + member.firstName + " " + member.lastName);
         } else if (member["image-front"] != "") {
             imageBack.setAttribute("src", this.vars.path + member["image-front"]);
@@ -1947,12 +2003,6 @@ const dptModule = {
 
         // Wenn Telegram existiert... noch zu erstellen
         }
-        // // Image und overviewBack in einen Flexboxcontainer packen
-        // const imageNameContainerBack = document.createElement("div");
-        // imageNameContainerBack.classList.add("img-name-container");
-        // imageNameContainerBack.appendChild(imageBackContainer)
-        // imageNameContainerBack.appendChild(cardOverviewBack)
-
         // Image, CTA, overviewBack und Description in cardBack einfügen
         cardBack.appendChild(imageBackContainer)
         cardBack.appendChild(cardOverviewBack)
@@ -2015,13 +2065,13 @@ const dptModule = {
             }
         ],
         "clickContact":[function (member){
-            this.vars.mainElements.lightBox.classList.remove("d-none");
+            this.createLightBox(member);
             document.querySelector("div[data-id='" + member.id + "']").querySelector(".card").classList.remove("is-flipped")
             console.log("member from clickedCard: ", member);
             document.querySelector("body").classList.add("oflowhide")
         }],
-        "closeContact":[function(){
-            this.vars.mainElements.lightBox.classList.add("d-none");
+        "closeLightBox":[function(){
+            document.querySelector("#lightbox").remove();
             document.querySelector("body").classList.remove("oflowhide")
         }]
     },
