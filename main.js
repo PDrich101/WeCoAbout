@@ -1677,7 +1677,7 @@ const dptModule = {
             if(property == "whatsapp"){
                 title.innerText = "WhatsApp";
                 tag.innerText = "WhatsApp Chat starten";
-                link.setAttribute("href", "https://web.whatsapp.com/send?phone=" + member.contacts.whatsapp);
+                link.setAttribute("href", "whatsapp://send?phone=" + member.contacts.whatsapp);
                 link.setAttribute("target", "_blank");
                 icon.setAttribute("src", dptModule.vars.path + "ICON_mobil.svg");
             }
