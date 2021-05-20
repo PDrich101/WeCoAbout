@@ -302,7 +302,7 @@ const allMembers = [
             "officePhone": "00497111626644",
             "mobilePhone": "00491727757788",
             "mail": "robert.werzer@wesser.de",
-            "whatsapp": "00491727757788",
+            "whatsapp": "+491727757788",
             "telegram": "PDrich",
             "signal": ""
         },
@@ -482,7 +482,7 @@ const allMembers = [
             "officePhone": "",
             "mobilePhone": "004915771678491",
             "mail": "robert.ritter@wesser.de",
-            "whatsapp": "004915771678491",
+            "whatsapp": "+4915771678491",
             "telegram": "robert_ritter",
             "signal": ""
         },
