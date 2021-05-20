@@ -303,7 +303,7 @@ const allMembers = [
             "mobilePhone": "00491727757788",
             "mail": "robert.werzer@wesser.de",
             "whatsapp": "00491727757788",
-            "telegram": "robert.werzer",
+            "telegram": "PDrich",
             "signal": ""
         },
         "image-front": "robert_werzer_2021_1.jpg",
