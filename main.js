@@ -303,7 +303,7 @@ const allMembers = [
             "mobilePhone": "00491727757788",
             "mail": "robert.werzer@wesser.de",
             "whatsapp": "00491727757788",
-            "telegram": "",
+            "telegram": "robert.werzer",
             "signal": ""
         },
         "image-front": "robert_werzer_2021_1.jpg",
@@ -480,10 +480,10 @@ const allMembers = [
         ],
         "contacts": {
             "officePhone": "",
-            "mobilePhone": "",
-            "mail": "",
-            "whatsapp": "",
-            "telegram": "",
+            "mobilePhone": "004915771678491",
+            "mail": "robert.ritter@wesser.de",
+            "whatsapp": "004915771678491",
+            "telegram": "robert_ritter",
             "signal": ""
         },
         "image-front": "robert_ritter_2021_1.jpg",
@@ -1649,6 +1649,57 @@ const dptModule = {
         navElementUL: [],
         dptSection: {},
     },
+    helper:{
+        createContactDiv(member, property){
+            const div = document.createElement("div");
+            const title = document.createElement("p");
+            const tag = document.createElement("span");
+            const link = document.createElement("a");
+            const icon = document.createElement("img");
+            if(property == "mobilePhone"){
+                title.innerText = "Telefon Mobil";
+                tag.innerText = member.contacts.mobilePhone 
+                link.setAttribute("href", "tel:" + member.contacts.mobilePhone);
+                icon.setAttribute("src", dptModule.vars.path + "ICON_mobil.svg");
+            }
+            if(property == "officePhone"){
+                title.innerText = "Telefon Büro";
+                tag.innerText = member.contacts.officePhone;
+                link.setAttribute("href", "tel:" + member.contacts.officePhone);
+                icon.setAttribute("src", dptModule.vars.path + "ICON_mobil.svg");
+            }
+            if(property == "mail"){
+                title.innerText = "E-Mail";
+                tag.innerText = member.contacts.mail;
+                link.setAttribute("href", "mailto:" + member.contacts.mail);
+                icon.setAttribute("src", dptModule.vars.path + "ICON_mobil.svg");
+            }
+            if(property == "whatsapp"){
+                title.innerText = "WhatsApp";
+                tag.innerText = "WhatsApp Chat starten";
+                link.setAttribute("href", "https://wa.me/" + member.contacts.whatsapp);
+                link.setAttribute("target", "_blank");
+                icon.setAttribute("src", dptModule.vars.path + "ICON_mobil.svg");
+            }
+            if(property == "telegram"){
+                title.innerText = "Telegram";
+                tag.innerText = "ID: @" + member.contacts.telegram;
+                link.setAttribute("href", "https://telegram.me/" + member.contacts.telegram);
+                link.setAttribute("target", "_blank");
+                icon.setAttribute("src", dptModule.vars.path + "ICON_mobil.svg");
+            }
+            div.appendChild(title);
+            div.appendChild(tag);
+            link.appendChild(icon);
+            div.appendChild(link);
+
+
+            return div;
+        },
+        createParagraph(){
+
+        }
+    },
     init(mainContainer, defaultDpt, path) {
         this.vars.mainElements.mainContainer = mainContainer
         this.vars.selectedDpt = defaultDpt;
@@ -1684,6 +1735,7 @@ const dptModule = {
     },
     createLightBox(member){
         console.log("createLightBox aufgerufen", member)
+        console.log("this in CreateLightBox()", this);
         //lightBox inkl. Klassen erstellen
         const lightBoxOverlay = document.createElement("div");
         lightBoxOverlay.classList.add("light-box");
@@ -1720,15 +1772,28 @@ const dptModule = {
         nameContainer.appendChild(lastName);
         nameContainer.appendChild(position);
 
+        //Kontaktcontainer erstellen
+        const contactContainer = document.createElement("div");
+        contactContainer.classList.add("contact-container")
 
+        //ADD LOGIC HERE
+        for(const contact in member.contacts){
+            if(member.contacts[contact] != ""){
+            contactContainer.appendChild(this.helper.createContactDiv(member, contact));
+            }
+        }
 
         // Image und nameContainer in contentBox einfügen
         lightBoxContent.appendChild(imageContainer);
         lightBoxContent.appendChild(nameContainer);
-        // ContentBox und 
+        lightBoxContent.appendChild(contactContainer)
+        // ContentBox an Lightbox hängen
         lightBoxOverlay.appendChild(lightBoxContent);
-        this.vars.mainElements.lightBox = lightBoxOverlay;
+        //LightBox in DOM anhängen
         this.vars.mainElements.mainContainer.appendChild(lightBoxOverlay);
+
+        // Lightbox in Hauptelementen speichern
+        this.vars.mainElements.lightBox = lightBoxOverlay;
     }
     ,
     /**
@@ -2093,6 +2158,6 @@ const dptModule = {
 document.addEventListener("DOMContentLoaded", () => {
     const mainContainer = document.querySelector("main");
 
-    dptModule.init(mainContainer, "vt", "Bilder/");
+    dptModule.init(mainContainer, "akq", "Bilder/");
     
 })
