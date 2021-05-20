@@ -1440,9 +1440,9 @@ const allMembers = [
         ],
         "contacts": {
             "officePhone": "",
-            "mobilePhone": "",
-            "mail": "",
-            "whatsapp": "",
+            "mobilePhone": "004917620200315",
+            "mail": "oliver.kunze@wesser.de",
+            "whatsapp": "+4917620200315",
             "telegram": "",
             "signal": ""
         },
@@ -1666,7 +1666,7 @@ const dptModule = {
                 title.innerText = "Telefon Büro";
                 tag.innerText = member.contacts.officePhone;
                 link.setAttribute("href", "tel:" + member.contacts.officePhone);
-                icon.setAttribute("src", dptModule.vars.path + "ICON_mobil.svg");
+                icon.setAttribute("src", dptModule.vars.path + "ICON_phone.svg");
             }
             if(property == "mail"){
                 title.innerText = "E-Mail";
