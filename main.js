@@ -540,72 +540,6 @@ const allMembers = [
         ]
     },
     {
-        "firstName": "Ajjana",
-        "lastName": "Baumeister",
-        "position": "Kommunikation & Corporate Social Responsibility",
-        "tasks": [
-            {
-                "taskNr": "1",
-                "task": "Interne und externe Kommunikation"
-            },
-            {
-                "taskNr": "2",
-                "task": "Verwaltung Wesser University"
-            },
-            {
-                "taskNr": "3",
-                "task": "Product Owner Wesser Studio"
-            }
-        ],
-        "contacts": {
-            "officePhone": "",
-            "mobilePhone": "",
-            "mail": "",
-            "whatsapp": "",
-            "telegram": "",
-            "signal": ""
-        },
-        "image-front": "ajjana_baumeister_2021_2.jpg",
-        "image-back": "",
-        "department": [
-            {
-                "departmentName": "gfk",
-                "departmentPosition": ""
-            }
-        ]
-    },
-    {
-        "firstName": "Tonia",
-        "lastName": "Gieray",
-        "position": "Grafikerin",
-        "tasks": [
-            {
-                "taskNr": "1",
-                "task": "Konzeption und Gestaltung aller Kommunikationsmittel"
-            },
-            {
-                "taskNr": "2",
-                "task": "Verwaltung Druckunterlagen"
-            }
-        ],
-        "contacts": {
-            "officePhone": "",
-            "mobilePhone": "",
-            "mail": "",
-            "whatsapp": "",
-            "telegram": "",
-            "signal": ""
-        },
-        "image-front": "tonia_gieray_2021_1.jpg",
-        "image-back": "",
-        "department": [
-            {
-                "departmentName": "gfk",
-                "departmentPosition": ""
-            }
-        ]
-    },
-    {
         "firstName": "Sabine",
         "lastName": "Bartholmess",
         "position": "Softwareentwicklerin",
@@ -916,6 +850,72 @@ const allMembers = [
         "department": [
             {
                 "departmentName": "gsl",
+                "departmentPosition": ""
+            }
+        ]
+    },
+    {
+        "firstName": "Ajjana",
+        "lastName": "Baumeister",
+        "position": "Kommunikation & Corporate Social Responsibility",
+        "tasks": [
+            {
+                "taskNr": "1",
+                "task": "Interne und externe Kommunikation"
+            },
+            {
+                "taskNr": "2",
+                "task": "Verwaltung Wesser University"
+            },
+            {
+                "taskNr": "3",
+                "task": "Product Owner Wesser Studio"
+            }
+        ],
+        "contacts": {
+            "officePhone": "",
+            "mobilePhone": "",
+            "mail": "",
+            "whatsapp": "",
+            "telegram": "",
+            "signal": ""
+        },
+        "image-front": "ajjana_baumeister_2021_2.jpg",
+        "image-back": "",
+        "department": [
+            {
+                "departmentName": "gfk",
+                "departmentPosition": ""
+            }
+        ]
+    },
+    {
+        "firstName": "Tonia",
+        "lastName": "Gieray",
+        "position": "Grafikerin",
+        "tasks": [
+            {
+                "taskNr": "1",
+                "task": "Konzeption und Gestaltung aller Kommunikationsmittel"
+            },
+            {
+                "taskNr": "2",
+                "task": "Verwaltung Druckunterlagen"
+            }
+        ],
+        "contacts": {
+            "officePhone": "",
+            "mobilePhone": "",
+            "mail": "",
+            "whatsapp": "",
+            "telegram": "",
+            "signal": ""
+        },
+        "image-front": "tonia_gieray_2021_1.jpg",
+        "image-back": "",
+        "department": [
+            {
+                "departmentName": "gfk",
                 "departmentPosition": ""
             }
         ]
