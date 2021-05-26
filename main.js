@@ -2088,11 +2088,19 @@ const dptModule = {
                 if(this.vars.mobileMode === true){
                     
                     singleCard.addEventListener("touchstart", (event) => {
-                        console.log("Touch Event", event)
-                        for (const element of this.vars.dptSection[this.vars.selectedDpt].querySelectorAll(".card")){
-                            element.classList.remove("is-flipped");
+                        event.preventDefault();
+                        function moveTouch() {
+                            return
                         }
-                        singleCard.querySelector(".card").classList.add("is-flipped");
+                        singleCard.ontouchmove = moveTouch;
+                        setTimeout(()=>{
+                            console.log("touchstart")
+                            console.log("Touch Event", event)
+                            for (const element of this.vars.dptSection[this.vars.selectedDpt].querySelectorAll(".card")){
+                                element.classList.remove("is-flipped");
+                            }
+                            singleCard.querySelector(".card").classList.add("is-flipped");
+                        },150)
                     });
                 }
             }
