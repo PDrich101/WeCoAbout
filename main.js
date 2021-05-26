@@ -1917,12 +1917,11 @@ const dptModule = {
     },
     createCard(member) {
         //
-        // 3D scene erstellen
+        // 3D singleCard erstellen
         //
-        const scene = document.createElement("div");
-        scene.classList.add("scene");
-        scene.classList.add("aboutItem");
-        scene.setAttribute("data-id", member.id)
+        const singleCard = document.createElement("div");
+        singleCard.classList.add("scene");
+        singleCard.setAttribute("data-id", member.id)
         //
         // card erstellen
         //
@@ -2033,10 +2032,10 @@ const dptModule = {
 
         card.appendChild(cardFront);
         card.appendChild(cardBack);
-        scene.appendChild(card);
+        singleCard.appendChild(card);
 
-        this.emit("addCard", scene)
-        return scene;
+        this.emit("addCard", singleCard)
+        return singleCard;
     },
     navigationClick(cardNavigationLiElement) {
         const nextDpt = cardNavigationLiElement.dataset.dpt
@@ -2076,20 +2075,21 @@ const dptModule = {
             }
         ],
         "addCard": [
-            function (scene) {
+            function (singleCard) {
                 // Im DesktopMode wird die Dreh-Möglichkeit aktiviert
                 if(this.vars.mobileMode === false){
-                    scene.addEventListener("mouseenter", () => {
-                        scene.querySelector(".card").classList.add("is-flipped");
+                    singleCard.addEventListener("mouseenter", () => {
+                        singleCard.querySelector(".card").classList.add("is-flipped");
                     });
-                    scene.addEventListener("mouseleave", () => {
-                        scene.querySelector(".card").classList.remove("is-flipped");
+                    singleCard.addEventListener("mouseleave", () => {
+                        singleCard.querySelector(".card").classList.remove("is-flipped");
                     })
                 }
                 if(this.vars.mobileMode === true){
-                    scene.querySelector(".card").classList.remove("is-flipped")
-                    scene.addEventListener("touchstart", () => {
-                        scene.querySelector(".card").classList.add("is-flipped");
+                    
+                    singleCard.addEventListener("touchstart", () => {
+                        this.vars.dptSection[this.vars.currentDpt].querySelector(".card").classList.remove("is-flipped")
+                        singleCard.querySelector(".card").classList.add("is-flipped");
                     });
                 }
             }
