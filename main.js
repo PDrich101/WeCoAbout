@@ -2088,12 +2088,10 @@ const dptModule = {
                 if(this.vars.mobileMode === true){
                     
                     singleCard.addEventListener("touchstart", (event) => {
-                        event.preventDefault();
-                        function moveTouch() {
-                            return
-                        }
-                        singleCard.ontouchmove = moveTouch;
+
+                        singleCard.ontouchmove = ()=> {return};
                         setTimeout(()=>{
+                            event.preventDefault();
                             console.log("touchstart")
                             console.log("Touch Event", event)
                             for (const element of this.vars.dptSection[this.vars.selectedDpt].querySelectorAll(".card")){
