@@ -1912,6 +1912,8 @@ const dptModule = {
         // Section in dptSection schreiben
  
         this.vars.dptSection[dptCode]= section
+
+        console.log("Grüße aus der Create Section", section.childNodes[0].childNodes)
     },
     createCard(member) {
         //
@@ -1958,78 +1960,79 @@ const dptModule = {
         //Image und Overview in cardFront einfügen
         cardFront.appendChild(imageFrontContainer);
         cardFront.appendChild(cardOverviewFront);
-        if (this.vars.mobileMode === false) {
-            //
-            //
-            // card-back erstellen
-            //
-            //
-            const cardBack = document.createElement("div");
-            cardBack.classList.add("card-back");
 
-            // Bild erstellen und wenn vorhanden mit Content füllen
-            const imageBackContainer = document.createElement("div");
-            imageBackContainer.classList.add("card-image-back");
-            const imageBack = document.createElement("img");
-            // Wenn imageBack vorhanden:nutzen, wenn nicht:nutze imageFront, wenn das nicht vorhanden:nutze Default
-            if (member["image-back"] != "") {
-                imageBack.setAttribute("src", this.vars.path + member["image-back"]);
-                imageBack.setAttribute("alt", "Sekundäres Titelbild von " + member.firstName + " " + member.lastName);
-            } else if (member["image-front"] != "") {
-                imageBack.setAttribute("src", this.vars.path + member["image-front"]);
-                imageBack.setAttribute("alt", "Titelbild von " + member.firstName + " " + member.lastName);
-            } else {
-                imageBack.setAttribute("src", this.vars.path + "usersecret.jpg");
-                imageBack.setAttribute("alt", "Anonymes Titelbild von " + member.firstName + " " + member.lastName);
-            }
-            imageBackContainer.appendChild(imageBack);
+        //
+        //
+        // card-back erstellen
+        //
+        //
+        const cardBack = document.createElement("div");
+        cardBack.classList.add("card-back");
 
-            // cardOverviewBack erstellen
-            const cardOverviewBack = document.createElement("div");
-            cardOverviewBack.classList.add("card-overview-back");
-
-            cardOverviewBack.appendChild(this.helper.createParagraph(member, "firstName"));
-            cardOverviewBack.appendChild(this.helper.createParagraph(member, "lastName"));
-
-            // TaskList erstellen
-            const cardDescriptionContainer = document.createElement("div");
-            cardDescriptionContainer.classList.add("card-description");
-            const taskList = document.createElement("ul");
-
-            for (const task of member.tasks) {
-                const taskElement = document.createElement("li");
-                taskElement.innerHTML = task.task;
-                taskList.appendChild(taskElement);
-            }
-            cardDescriptionContainer.appendChild(this.helper.createParagraph(member, "position"));
-            cardDescriptionContainer.appendChild(taskList);
-
-            // Call-to-action erstellen
-            const CTAContainer = document.createElement("div");
-            CTAContainer.classList.add("card-call-to-action");
-
-            // Button erstellen als Standard
-            const contactLink = document.createElement("a");
-            contactLink.innerText = "Kontaktieren";
-            contactLink.addEventListener("click", () => { this.emit("clickContact", member) })
-            CTAContainer.appendChild(contactLink)
-
-            // Image, CTA, overviewBack und Description in cardBack einfügen
-            cardBack.appendChild(imageBackContainer)
-            cardBack.appendChild(cardOverviewBack)
-            // cardBack.appendChild(imageNameContainerBack)
-            cardBack.appendChild(cardDescriptionContainer)
-            cardBack.appendChild(CTAContainer)
-            card.appendChild(cardBack);
+        // Bild erstellen und wenn vorhanden mit Content füllen
+        const imageBackContainer = document.createElement("div");
+        imageBackContainer.classList.add("card-image-back");
+        const imageBack = document.createElement("img");
+        // Wenn imageBack vorhanden:nutzen, wenn nicht:nutze imageFront, wenn das nicht vorhanden:nutze Default
+        if (member["image-back"] != "") {
+            imageBack.setAttribute("src", this.vars.path + member["image-back"]);
+            imageBack.setAttribute("alt", "Sekundäres Titelbild von " + member.firstName + " " + member.lastName);
+        } else if (member["image-front"] != "") {
+            imageBack.setAttribute("src", this.vars.path + member["image-front"]);
+            imageBack.setAttribute("alt", "Titelbild von " + member.firstName + " " + member.lastName);
+        } else {
+            imageBack.setAttribute("src", this.vars.path + "usersecret.jpg");
+            imageBack.setAttribute("alt", "Anonymes Titelbild von " + member.firstName + " " + member.lastName);
         }
-        if(this.vars.mobileMode === true){
-            const contactLink = document.createElement("a");
-            contactLink.innerText = "Mehr Infos";
-            contactLink.addEventListener("click", () => { this.emit("clickContact", member) })
-            cardFront.appendChild(contactLink) 
+        imageBackContainer.appendChild(imageBack);
+
+        // cardOverviewBack erstellen
+        const cardOverviewBack = document.createElement("div");
+        cardOverviewBack.classList.add("card-overview-back");
+
+        cardOverviewBack.appendChild(this.helper.createParagraph(member, "firstName"));
+        cardOverviewBack.appendChild(this.helper.createParagraph(member, "lastName"));
+
+        // TaskList erstellen
+        const cardDescriptionContainer = document.createElement("div");
+        cardDescriptionContainer.classList.add("card-description");
+        const taskList = document.createElement("ul");
+
+        for (const task of member.tasks) {
+            const taskElement = document.createElement("li");
+            taskElement.innerHTML = task.task;
+            taskList.appendChild(taskElement);
         }
-    
+        cardDescriptionContainer.appendChild(this.helper.createParagraph(member, "position"));
+        cardDescriptionContainer.appendChild(taskList);
+
+        // Call-to-action erstellen
+        const CTAContainer = document.createElement("div");
+        CTAContainer.classList.add("card-call-to-action");
+
+        // Button erstellen als Standard
+        const contactLink = document.createElement("a");
+        contactLink.innerText = "Kontaktieren";
+        contactLink.addEventListener("click", () => { this.emit("clickContact", member) })
+        CTAContainer.appendChild(contactLink)
+
+        // Image, CTA, overviewBack und Description in cardBack einfügen
+        cardBack.appendChild(imageBackContainer)
+        cardBack.appendChild(cardOverviewBack)
+        // cardBack.appendChild(imageNameContainerBack)
+        cardBack.appendChild(cardDescriptionContainer)
+        cardBack.appendChild(CTAContainer)
+
+
+        if (this.vars.mobileMode === true) {
+            // const contactLink = document.createElement("a");
+            // contactLink.innerText = "Mehr Infos";
+            // contactLink.addEventListener("click", () => { this.emit("clickContact", member) })
+            // cardFront.appendChild(contactLink) 
+        }
+
         card.appendChild(cardFront);
+        card.appendChild(cardBack);
         scene.appendChild(card);
 
         this.emit("addCard", scene)
@@ -2084,12 +2087,10 @@ const dptModule = {
                     })
                 }
                 if(this.vars.mobileMode === true){
+                    scene.querySelector(".card").classList.remove("is-flipped")
                     scene.addEventListener("touchstart", () => {
                         scene.querySelector(".card").classList.add("is-flipped");
                     });
-                    scene.addEventListener("touchend", () => {
-                        scene.querySelector(".card").classList.remove("is-flipped");
-                    }) 
                 }
             }
         ],
