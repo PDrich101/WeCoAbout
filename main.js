@@ -2087,9 +2087,9 @@ const dptModule = {
                     scene.addEventListener("touchstart", () => {
                         scene.querySelector(".card").classList.add("is-flipped");
                     });
-                    // scene.addEventListener("mouseleave", () => {
-                    //     scene.querySelector(".card").classList.remove("is-flipped");
-                    // }) 
+                    scene.addEventListener("touchend", () => {
+                        scene.querySelector(".card").classList.remove("is-flipped");
+                    }) 
                 }
             }
         ],
