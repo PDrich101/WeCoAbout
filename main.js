@@ -1957,123 +1957,72 @@ const dptModule = {
         //Image und Overview in cardFront einfügen
         cardFront.appendChild(imageFrontContainer);
         cardFront.appendChild(cardOverviewFront);
-        //
-        //
-        // card-back erstellen
-        //
-        //
-        const cardBack = document.createElement("div");
-        cardBack.classList.add("card-back");
+        if (this.vars.mobileMode === false) {
+            //
+            //
+            // card-back erstellen
+            //
+            //
+            const cardBack = document.createElement("div");
+            cardBack.classList.add("card-back");
 
-        // Bild erstellen und wenn vorhanden mit Content füllen
-        const imageBackContainer = document.createElement("div");
-        imageBackContainer.classList.add("card-image-back");
-        const imageBack = document.createElement("img");
-        // Wenn imageBack vorhanden:nutzen, wenn nicht:nutze imageFront, wenn das nicht vorhanden:nutze Default
-        if (member["image-back"] != "") {
-            imageBack.setAttribute("src", this.vars.path + member["image-back"]);
-            imageBack.setAttribute("alt", "Sekundäres Titelbild von " + member.firstName + " " + member.lastName);
-        } else if (member["image-front"] != "") {
-            imageBack.setAttribute("src", this.vars.path + member["image-front"]);
-            imageBack.setAttribute("alt", "Titelbild von " + member.firstName + " " + member.lastName);
-        } else {
-            imageBack.setAttribute("src", this.vars.path + "usersecret.jpg");
-            imageBack.setAttribute("alt", "Anonymes Titelbild von " + member.firstName + " " + member.lastName);
+            // Bild erstellen und wenn vorhanden mit Content füllen
+            const imageBackContainer = document.createElement("div");
+            imageBackContainer.classList.add("card-image-back");
+            const imageBack = document.createElement("img");
+            // Wenn imageBack vorhanden:nutzen, wenn nicht:nutze imageFront, wenn das nicht vorhanden:nutze Default
+            if (member["image-back"] != "") {
+                imageBack.setAttribute("src", this.vars.path + member["image-back"]);
+                imageBack.setAttribute("alt", "Sekundäres Titelbild von " + member.firstName + " " + member.lastName);
+            } else if (member["image-front"] != "") {
+                imageBack.setAttribute("src", this.vars.path + member["image-front"]);
+                imageBack.setAttribute("alt", "Titelbild von " + member.firstName + " " + member.lastName);
+            } else {
+                imageBack.setAttribute("src", this.vars.path + "usersecret.jpg");
+                imageBack.setAttribute("alt", "Anonymes Titelbild von " + member.firstName + " " + member.lastName);
+            }
+            imageBackContainer.appendChild(imageBack);
+
+            // cardOverviewBack erstellen
+            const cardOverviewBack = document.createElement("div");
+            cardOverviewBack.classList.add("card-overview-back");
+
+            cardOverviewBack.appendChild(this.helper.createParagraph(member, "firstName"));
+            cardOverviewBack.appendChild(this.helper.createParagraph(member, "lastName"));
+
+            // TaskList erstellen
+            const cardDescriptionContainer = document.createElement("div");
+            cardDescriptionContainer.classList.add("card-description");
+            const taskList = document.createElement("ul");
+
+            for (const task of member.tasks) {
+                const taskElement = document.createElement("li");
+                taskElement.innerHTML = task.task;
+                taskList.appendChild(taskElement);
+            }
+            cardDescriptionContainer.appendChild(this.helper.createParagraph(member, "position"));
+            cardDescriptionContainer.appendChild(taskList);
+
+            // Call-to-action erstellen
+            const CTAContainer = document.createElement("div");
+            CTAContainer.classList.add("card-call-to-action");
+
+            // Button erstellen als Standard
+            const contactLink = document.createElement("a");
+            contactLink.innerText = "Kontaktieren";
+            contactLink.addEventListener("click", () => { this.emit("clickContact", member) })
+            CTAContainer.appendChild(contactLink)
+
+            // Image, CTA, overviewBack und Description in cardBack einfügen
+            cardBack.appendChild(imageBackContainer)
+            cardBack.appendChild(cardOverviewBack)
+            // cardBack.appendChild(imageNameContainerBack)
+            cardBack.appendChild(cardDescriptionContainer)
+            cardBack.appendChild(CTAContainer)
+            card.appendChild(cardBack);
         }
-        imageBackContainer.appendChild(imageBack);
-
-        // cardOverviewBack erstellen
-        const cardOverviewBack = document.createElement("div");
-        cardOverviewBack.classList.add("card-overview-back");
-        const nameParagraphBackFirstName = document.createElement("p");
-        nameParagraphBackFirstName.innerHTML = member.firstName;
-        const nameParagraphBackLastName = document.createElement("p");
-        nameParagraphBackLastName.innerHTML = member.lastName;
-
-        const positionParagraphBack = document.createElement("p");
-        positionParagraphBack.innerText = member.position;
-
-        cardOverviewBack.appendChild(nameParagraphBackFirstName);
-        cardOverviewBack.appendChild(nameParagraphBackLastName);
         
-
-        // TaskList erstellen
-        const cardDescriptionContainer = document.createElement("div");
-        cardDescriptionContainer.classList.add("card-description");
-        const taskList = document.createElement("ul");
-
-        for (const task of member.tasks) {
-            const taskElement = document.createElement("li");
-            taskElement.innerHTML = task.task;
-            taskList.appendChild(taskElement);
-        }
-        cardDescriptionContainer.appendChild(positionParagraphBack)
-        cardDescriptionContainer.appendChild(taskList);
-
-        // Call-to-action erstellen
-        const CTAContainer = document.createElement("div");
-        CTAContainer.classList.add("card-call-to-action");
-
-        // Button erstellen als Standard
-        const contactLink = document.createElement("a");
-        contactLink.innerText = "Kontaktieren";
-        contactLink.addEventListener("click", ()=>{this.emit("clickContact", member)})
-        CTAContainer.appendChild(contactLink)
-
-        // ONHOLD
-        if(1===2){
-        // Wenn Office-Tel-Nr. existiert
-        if (member.contacts.officePhone != "") {
-            const CTADesktopPhoneLink = document.createElement("a");
-            CTADesktopPhoneLink.setAttribute("href", "tel:" + member.contacts.officePhone);
-            const CTADesktopPhone = document.createElement("img");
-            CTADesktopPhone.setAttribute("src", "Bilder/desktop_phone.jpg");
-            CTADesktopPhoneLink.appendChild(CTADesktopPhone);
-            CTAContainer.appendChild(CTADesktopPhoneLink);
-        }
-
-        // Wenn Mobil-Tel-Nr. existiert
-        if (member.contacts.mobilePhone != "") {
-            const CTAMobilePhoneLink = document.createElement("a");
-            CTAMobilePhoneLink.setAttribute("href", "tel:" + member.contacts.mobilePhone);
-            const CTAMobilePhone = document.createElement("img");
-            CTAMobilePhone.setAttribute("src", "Bilder/mobile_phone.jpg");
-            CTAMobilePhoneLink.appendChild(CTAMobilePhone);
-            CTAContainer.appendChild(CTAMobilePhoneLink);
-        }
-
-        // Wenn Mail-Adresse existiert
-        if (member.contacts.mail != "") {
-            const CTAMailLink = document.createElement("a");
-            CTAMailLink.setAttribute("href", "mailto:" + member.contacts.mail);
-            const CTAMail = document.createElement("img");
-            CTAMail.setAttribute("src", "Bilder/mail.jpg");
-            CTAMailLink.appendChild(CTAMail);
-            CTAContainer.appendChild(CTAMailLink);
-        }
-
-        // Wenn WhatsApp existiert
-        if (member.contacts.whatsapp != "") {
-            const CTAWhatsAppLink = document.createElement("a");
-            CTAWhatsAppLink.setAttribute("href", "https://wa.me/" + member.contacts.whatsapp);
-            CTAWhatsAppLink.setAttribute("target", "_blank");
-            const CTAWhatsApp = document.createElement("img");
-            CTAWhatsApp.setAttribute("src", "Bilder/whatsapp.jpg");
-            CTAWhatsAppLink.appendChild(CTAWhatsApp);
-            CTAContainer.appendChild(CTAWhatsAppLink);
-        }
-
-        // Wenn Telegram existiert... noch zu erstellen
-        }
-        // Image, CTA, overviewBack und Description in cardBack einfügen
-        cardBack.appendChild(imageBackContainer)
-        cardBack.appendChild(cardOverviewBack)
-        // cardBack.appendChild(imageNameContainerBack)
-        cardBack.appendChild(cardDescriptionContainer)
-        cardBack.appendChild(CTAContainer)
-    
         card.appendChild(cardFront);
-        card.appendChild(cardBack);
         scene.appendChild(card);
 
         this.emit("addCard", scene)
