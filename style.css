@@ -223,11 +223,15 @@ h2{
     font-size: 2em;
 }
 /* Card Vorderseite */
-.card-overview-front :first-child{
+.card-overview-front :first-child,.card-overview-front :nth-child(2){
+    margin-top: 10px;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     color:#222;
+}
+.card-overview-front :nth-child(2){
+    margin-top:0px;
 }
 .card-overview-front :last-child{
     font-size: 1.3em;
@@ -286,10 +290,11 @@ h2{
     display: inline-block;
     border:1px solid #800606;
     border-radius: 5px;
-    padding: 5px 15px;
+    padding: 5px 5px;
     margin:4px;
     color:#800606;
     flex-grow: 1;
+    min-width: 60px;
 }
 #card-nav li.selected{
     background-color:#800606;
