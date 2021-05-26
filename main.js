@@ -2021,7 +2021,7 @@ const dptModule = {
             cardBack.appendChild(CTAContainer)
             card.appendChild(cardBack);
         }
-        
+    
         card.appendChild(cardFront);
         scene.appendChild(card);
 
@@ -2067,12 +2067,14 @@ const dptModule = {
         ],
         "addCard": [
             function (scene) {
-                scene.addEventListener("mouseenter", () => {
-                    scene.querySelector(".card").classList.add("is-flipped");
-                });
-                scene.addEventListener("mouseleave", () => {
-                    scene.querySelector(".card").classList.remove("is-flipped");
-                })
+                if(this.vars.mobileMode === false){
+                    scene.addEventListener("mouseenter", () => {
+                        scene.querySelector(".card").classList.add("is-flipped");
+                    });
+                    scene.addEventListener("mouseleave", () => {
+                        scene.querySelector(".card").classList.remove("is-flipped");
+                    })
+                }
             }
         ],
         "clickContact":[function (member){
