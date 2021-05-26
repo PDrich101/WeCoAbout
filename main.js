@@ -2088,7 +2088,7 @@ const dptModule = {
                 if(this.vars.mobileMode === true){
                     
                     singleCard.addEventListener("touchstart", () => {
-                        this.vars.dptSection[this.vars.selectedDpt].querySelector(".card").classList.remove("is-flipped")
+                        this.vars.dptSection[this.vars.selectedDpt].querySelectorAll(".card").classList.remove("is-flipped")
                         singleCard.querySelector(".card").classList.add("is-flipped");
                     });
                 }
