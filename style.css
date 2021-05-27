@@ -104,7 +104,7 @@ h2{
 /* Layout Card Front */
 .card-front{
     grid-template-columns: 1fr;
-    grid-template-rows: 200px 110px;
+    grid-template-rows: 200px 100px 10px;
 }
 .card-image-front{
     grid-column:1;
@@ -118,17 +118,26 @@ h2{
     grid-row-start: 2;
     grid-row-end: 3;
 }
-.card-overview-front :last-child{
-    padding-top:5px;
-}
 .card-overview-front p {
     margin: 10px 0px 0px 0px;
 }
-.card-overview-front :last-child{
+.card-overview-front :first-child{
+    margin-top:10px;
+}
+.card-overview-front :nth-child(2){
+    margin-top:0px;
+}
+.card-overview-front :nth-child(3){
+    padding-top:5px;
     margin-top:7px;
     border-top:0.8px solid #666;
 }
-
+.card-front>p{
+    grid-column:1;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    margin: 0px;
+}
 /* Layout Card Back */
 .card-back{
     grid-template-columns:50px 110px;
@@ -224,18 +233,19 @@ h2{
 }
 /* Card Vorderseite */
 .card-overview-front :first-child,.card-overview-front :nth-child(2){
-    margin-top: 10px;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     color:#222;
 }
-.card-overview-front :nth-child(2){
-    margin-top:0px;
-}
-.card-overview-front :last-child{
+.card-overview-front :nth-child(3){
     font-size: 1.3em;
     color:#666;
+}
+.card-front>p{
+    font-size: 1em;
+    color:#666;
+    text-align: right;
 }
 
 /* Card Rückseite */

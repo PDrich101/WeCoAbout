@@ -1954,7 +1954,12 @@ const dptModule = {
 
         cardOverviewFront.appendChild(this.helper.createParagraph(member, "firstName"));
         cardOverviewFront.appendChild(this.helper.createParagraph(member, "lastName"));
-        cardOverviewFront.appendChild(this.helper.createParagraph(member, "position"))
+        cardOverviewFront.appendChild(this.helper.createParagraph(member, "position"));
+        if (this.vars.mobileMode === true) {
+            const moreInfo = document.createElement("p")
+            moreInfo.innerText="Mehr Infos"
+            cardFront.appendChild(moreInfo);
+        }
 
         //Image und Overview in cardFront einfügen
         cardFront.appendChild(imageFrontContainer);
