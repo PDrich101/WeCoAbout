@@ -1458,7 +1458,7 @@ const allMembers = [
     {
         "firstName": "Patrick",
         "lastName": "Löst",
-        "position": "Schulungsleiter / Bereichsleiter Infostandwerbung",
+        "position": "Schulungsleiter / Vertriebsleitung Stand",
         "tasks": [
             {
                 "taskNr": "1",
