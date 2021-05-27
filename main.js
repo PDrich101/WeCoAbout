@@ -2086,19 +2086,11 @@ const dptModule = {
                     })
                 }
                 if(this.vars.mobileMode === true){
-                    
-                    singleCard.addEventListener("touchstart", (event) => {
-
-                        singleCard.ontouchmove = ()=> {return};
-                        setTimeout(()=>{
-                            event.preventDefault();
-                            console.log("touchstart")
-                            console.log("Touch Event", event)
-                            for (const element of this.vars.dptSection[this.vars.selectedDpt].querySelectorAll(".card")){
-                                element.classList.remove("is-flipped");
-                            }
-                            singleCard.querySelector(".card").classList.add("is-flipped");
-                        },150)
+                    singleCard.addEventListener("click", (event) => {
+                        for (const card of this.vars.dptSection[this.vars.selectedDpt].querySelectorAll(".card")){
+                            card.classList.remove("is-flipped");
+                        }
+                        singleCard.querySelector(".card").classList.add("is-flipped");
                     });
                 }
             }
