@@ -2085,13 +2085,18 @@ const dptModule = {
                         singleCard.querySelector(".card").classList.remove("is-flipped");
                     })
                 }
-                if(this.vars.mobileMode === true){
-                    singleCard.addEventListener("click", (event) => {
-                        for (const card of this.vars.dptSection[this.vars.selectedDpt].querySelectorAll(".card")){
-                            card.classList.remove("is-flipped");
+                if (this.vars.mobileMode === true) {
+                    singleCard.querySelector(".card-front").addEventListener("click", (event) => {
+                        console.log("hat es geklappt?")
+                        for (const element of this.vars.dptSection[this.vars.selectedDpt].querySelectorAll(".card")) {
+                            element.classList.remove("is-flipped");
                         }
                         singleCard.querySelector(".card").classList.add("is-flipped");
                     });
+                    singleCard.querySelector(".card-back").addEventListener("click", (event) => {
+                        singleCard.querySelector(".card").classList.remove("is-flipped");
+                    });
+
                 }
             }
         ],
