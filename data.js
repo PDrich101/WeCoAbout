@@ -516,7 +516,10 @@ const allMembers = [
       {
         departmentName: "coa",
         departmentPosition: "",
-      },
+      }      {
+        departmentName: "vt",
+        departmentPosition: "",
+      },,
     ],
   },
   {
@@ -554,7 +557,7 @@ const allMembers = [
       },
       {
         departmentName: "vt",
-        departmentPosition: "1",
+        departmentPosition: "",
       },
     ],
   },
