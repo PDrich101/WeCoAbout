@@ -899,7 +899,7 @@ const allMembers = [
       officePhone: "+497111626635",
       mobilePhone: "00491777051207",
       mail: "Benita.Renz@wesser.de",
-      whatsapp: "+491777051207",
+      whatsapp: "",
       telegram: "",
       signal: "",
     },
