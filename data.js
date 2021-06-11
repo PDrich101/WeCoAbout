@@ -516,10 +516,11 @@ const allMembers = [
       {
         departmentName: "coa",
         departmentPosition: "",
-      }      {
+      },
+      {
         departmentName: "vt",
         departmentPosition: "",
-      },,
+      },
     ],
   },
   {
