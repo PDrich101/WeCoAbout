@@ -24,43 +24,52 @@ const dptModule = {
       const tag = document.createElement("span");
       const link = document.createElement("a");
       const icon = document.createElement("img");
-      if (property == "mobilePhone") {
+      if (property === "mobilePhone") {
         title.innerText = "Telefon Mobil";
         tag.innerText = member.contacts.mobilePhone;
         link.setAttribute("href", "tel:" + member.contacts.mobilePhone);
         icon.setAttribute("src", dptModule.vars.path + "ICON_mobil.svg");
       }
-      if (property == "officePhone") {
+      if (property === "officePhone") {
         title.innerText = "Telefon Büro";
         tag.innerText = member.contacts.officePhone;
         link.setAttribute("href", "tel:" + member.contacts.officePhone);
         icon.setAttribute("src", dptModule.vars.path + "ICON_phone.svg");
       }
-      if (property == "mail") {
+      if (property === "mail") {
         title.innerText = "E-Mail";
         tag.innerText = member.contacts.mail;
-        link.setAttribute("href", "mailto:" + member.contacts.mail);
-        icon.setAttribute("src", dptModule.vars.path + "ICON_mobil.svg");
+        const mailBeginning = `Hallo ${member.firstName} ${member.lastName},`;
+        const subject = "Anfrage über WesserCoach:";
+        link.setAttribute(
+          "href",
+          `mailto:${
+            member.contacts.mail
+          }?subject=${subject}&body=${encodeURIComponent(
+            mailBeginning
+          )}%0D%0A%0D%0A%0D%0A`
+        );
+        icon.setAttribute("src", dptModule.vars.path + "ICON_mail.svg");
       }
-      if (property == "whatsapp") {
+      if (property === "whatsapp") {
         title.innerText = "WhatsApp";
-        tag.innerText = "";
+        tag.innerText = "starten";
         link.setAttribute(
           "href",
           "whatsapp://send?phone=" + member.contacts.whatsapp
         );
         link.setAttribute("target", "_blank");
-        icon.setAttribute("src", dptModule.vars.path + "ICON_mobil.svg");
+        icon.setAttribute("src", dptModule.vars.path + "ICON_whatsapp.svg");
       }
-      if (property == "telegram") {
+      if (property === "telegram") {
         title.innerText = "Telegram";
-        tag.innerText = "";
+        tag.innerText = "starten";
         link.setAttribute(
           "href",
           "https://telegram.me/" + member.contacts.telegram
         );
         link.setAttribute("target", "_blank");
-        icon.setAttribute("src", dptModule.vars.path + "ICON_mobil.svg");
+        icon.setAttribute("src", dptModule.vars.path + "ICON_telegram.svg");
       }
       div.appendChild(title);
       div.appendChild(tag);
@@ -366,15 +375,24 @@ const dptModule = {
     cardOverviewFront.appendChild(
       this.helper.createParagraph(member, "position")
     );
-    if (this.vars.mobileMode === true) {
-      const moreInfo = document.createElement("p");
-      moreInfo.innerText = "Mehr Infos";
-      cardFront.appendChild(moreInfo);
-    }
-
     //Image und Overview in cardFront einfügen
     cardFront.appendChild(imageFrontContainer);
     cardFront.appendChild(cardOverviewFront);
+
+    if (this.vars.mobileMode === true) {
+      const container = document.createElement("div");
+      container.classList.add("icon");
+      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      const moreInfo = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "path"
+      );
+      moreInfo.setAttribute("d", infoIconAbout);
+      moreInfo.setAttribute("fill", "#800606");
+      svg.appendChild(moreInfo);
+      container.appendChild(svg);
+      cardFront.appendChild(container);
+    }
 
     //
     //
@@ -579,8 +597,6 @@ const dptModule = {
 };
 document.addEventListener("DOMContentLoaded", () => {
   const mainContainer = document.querySelector("main");
-
-  dptModule.init(mainContainer, "akq", "Bilder/");
   const url = new URL("https://www.wesser.info/wp-content/uploads/about/");
-  console.log(url);
+  dptModule.init(mainContainer, "akq", url);
 });
