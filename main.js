@@ -213,27 +213,34 @@ const dptModule = {
     // Alle Mitarbeiter werden der jeweils gesetzten Abteilung zugeordnet,
     // und vorerst in ein Hilfsobjekt allDptMembers geschrieben
     const allDptMembers = {};
+
+    // Hilfsobjekt mit allen Abteilungen erstellen
+    for (let CC of Object.keys(dptCodes)) {
+      allDptMembers[CC] = [];
+    }
+    // für alle MA...
     for (const member of this.vars.allMembers) {
       member.id = getID();
-      let dptKey = member.department[0].departmentName;
-      // Wenn Kein Department-Key vergeben ist, weise den MA der Abteilung "na" zu
-      if (dptKey === "") {
-        dptKey = "na";
-        member.department[0].departmentName = "na";
-      }
-      // Wenn die Abteilung schon im Hilfsobjekt ist, füge MA hinzu
-      if (allDptMembers.hasOwnProperty(dptKey)) {
-        allDptMembers[dptKey].push(member);
-        continue;
-      }
-      // Wenn die Abteilung noch nicht existiert, erstelle sie und füge MA hinzu
-      else {
-        allDptMembers[dptKey] = [];
-        allDptMembers[dptKey].push(member);
+      // Prüfe die zugehörigkeiten und füge sie hinzu
+      for (const dpt of member.department) {
+        allDptMembers[dpt.departmentName].push(member);
+        console.log();
       }
     }
+    // Für Alle Abteilungen...
+    for (const dpt of Object.keys(allDptMembers)) {
+      // Sortiere die MA nach ihrem Nachnamen
+      allDptMembers[dpt].sort(function (a, b) {
+        var x = a.lastName;
+        var y = b.lastName;
+        return x < y ? -1 : x > y ? 1 : 0;
+      });
+      console.log(allDptMembers);
+    }
+
     // An dieser Stelle könnte man sich das Hilfsobjekt anzeigen lassen
     // allDptMembers = { dpt1:[member, member, member], dpt2:[member, member], dpt3:[member, member, member].....}
+    console.log("-".repeat(40), " HIER ", allDptMembers);
 
     for (const dpt of Object.keys(allDptMembers)) {
       const newDpt = this.createSingleDepartment(dpt, allDptMembers[dpt]);
